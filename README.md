@@ -57,3 +57,30 @@ After generating the base with Widoco, the following was added by hand:
   - *Try in SHACL Playground*, linking to a pre-loaded [Zazuko SHACL Playground](https://s.zazuko.com/3tGoR4F).
 - **Example section** (`<div id="Example">`), placed between the Overview and Description sections. It embeds a YASGUI SPARQL query editor, pre-filled with a default query listing capabilities with their bearers and consumed/produced resources, and run against the demo endpoint `https://sparql.manzi-it.com/demo/sparql`, which hosts an example CIG instance graph of the [Lycoming O-320](https://en.wikipedia.org/wiki/Lycoming_O-320) ignition system. YASGUI is initialised with `autofocus: false` so the page does not scroll down to the editor on load.
 - **SHACL paragraph** at the end of the Description section, pointing to the shapes file and explaining what it validates beyond OWL 2 DL.
+
+## GitHub Pages
+
+The documentation of the **latest** version is published with GitHub Pages from the `gh-pages` branch, at <https://eppemedia.github.io/CapabilityInteractionGraphs/>.
+
+The `gh-pages` branch does not follow the layout of `main`: its root is a copy of `<version>/web/` of the latest release (plus `LICENSE`), so that `index.html` and the serializations are served directly from the site root. Never edit `gh-pages` by hand; make changes in `main` and publish them.
+
+To publish a new version, once its `<version>/web/` directory (including the [manual additions](#manual-additions-to-the-web-page)) is committed on `main`:
+
+```sh
+# Check out gh-pages next to the main working tree
+git worktree add ../cig-gh-pages gh-pages
+cd ../cig-gh-pages
+
+# Replace the site contents with the new version's web page, keeping LICENSE
+rsync -a --delete --exclude .git --exclude LICENSE ../CapabilityInteractionGraphs/<version>/web/ ./
+
+git add -A
+git commit -m "Add documentation of version <version> to github pages."
+git push origin gh-pages
+
+# Clean up
+cd -
+git worktree remove ../cig-gh-pages
+```
+
+Adjust `../CapabilityInteractionGraphs` to the path of your `main` checkout. GitHub Pages should be configured (under *Settings → Pages*) to deploy from the `gh-pages` branch, root folder. Older versions are not on the site, but they remain available in their version directories on `main`.
