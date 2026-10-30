@@ -1,0 +1,3662 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://purl.org/capability-interaction-graph", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://purl.org/nemo/gufo", "http://www.w3.org/2006/time" ],
+    "title" : {
+      "en" : "Capability Interaction Graph (CIG) Ontology"
+    },
+    "iri" : "http://purl.org/capability-interaction-graph#",
+    "version" : "1.0.0",
+    "author" : [ "Caltais, Georgiana", "Ntagengerwa, Manzi Aimé", "Stoelinga, Mariëlle" ],
+    "comments" : {
+      "undefined" : "An ontology-driven representation of Cyber-Physical System (CPS) architectures, capturing components, capabilities, channels, interfaces, faults, errors and the functional dependencies that govern fault propagation between them.\n\nThis ontology implements the Capability Interaction Graph (CIG) conceptual model of Fig. 5 in the source paper. It is a lightweight extension of gUFO (the Unified Foundational Ontology's OWL 2 DL implementation): components and channels specialize gufo:Object, capabilities and faults specialize gufo:IntrinsicMode (dispositions), functions/errors/fault-creation events specialize gufo:Event, and interfaces specialize gufo:Relator.\n\nCIGs are intended to be queried from system-architecture knowledge graphs via SPARQL and transformed into Fault Trees for Fault Tree Analysis (FTA). This file captures only the static ontological vocabulary (the classes and relations of Fig. 5); the paper's dynamic/temporal semantics (situations, events, error propagation, the CIG-to-Fault-Tree transformation) are given a formal, non-OWL treatment in the paper itself and are not encoded here.\n\nTurtle is used as the exchange syntax, matching gUFO's own primary distribution format and the SPARQL/GraphDB tooling described in the source paper."
+    },
+    "other" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Ntagengerwa, Manzi Aimé",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Caltais, Georgiana",
+        "type" : "label"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Stoelinga, Mariëlle",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2026-07-03",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "en",
+        "value" : "cig",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "en",
+        "value" : "1.0.0",
+        "type" : "label"
+      } ],
+      "bibliographicCitation" : [ {
+        "identifier" : "bibliographicCitation",
+        "language" : "en",
+        "value" : "M. A. Ntagengerwa, G. Caltais, M. Stoelinga, \"Ontology-Grounded Capability Interaction Graphs: From Knowledge Graphs to Fault Trees\", University of Twente, The Netherlands.",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "http://purl.org/capability-interaction-graph#",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Capability Interaction Graph (CIG) Ontology",
+        "type" : "label"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo",
+        "type" : "iri"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "82",
+    "type" : "owl:Class"
+  }, {
+    "id" : "84",
+    "type" : "owl:Class"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "56",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "88",
+    "type" : "owl:Class"
+  }, {
+    "id" : "94",
+    "type" : "owl:Class"
+  }, {
+    "id" : "99",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:Class"
+  }, {
+    "id" : "89",
+    "type" : "owl:Class"
+  }, {
+    "id" : "66",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "120",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "79",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "108",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "77",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "62",
+    "type" : "owl:Class"
+  }, {
+    "id" : "100",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  }, {
+    "id" : "83",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "141",
+    "type" : "owl:Class"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "42",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "114",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "183",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "170",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "186",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "185",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "75",
+    "type" : "owl:Class"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
+  }, {
+    "id" : "93",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "122",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "116",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "158",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "58",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "81",
+    "type" : "owl:Class"
+  }, {
+    "id" : "96",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "64",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "133",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "106",
+    "type" : "owl:Class"
+  }, {
+    "id" : "163",
+    "type" : "owl:Class"
+  }, {
+    "id" : "87",
+    "type" : "owl:Class"
+  }, {
+    "id" : "105",
+    "type" : "owl:disjointUnionOf"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://purl.org/capability-interaction-graph#Error",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Error",
+      "en" : "Error"
+    },
+    "comment" : {
+      "en" : "The event spanning the period during which a Capability is in its erroneous phase, triggered when an expectation on that capability's manifestation is unmet. Ends once the expectation no longer holds or the capability manifests again. Corresponds to the <<event>> Error class of Fig. 5 (Section VI, Definition 18)."
+    },
+    "id" : "3",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Role",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 2,
+    "label" : {
+      "IRI-based" : "Role",
+      "en" : "Role"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that both sortal and anti-rigid. It is defined by relational instantiation conditions. Roles are relationally dependent types, capturing relational properties shared by instances of a given kind.\n\nFor example, \"Student\" may be considered a gufo:Role as a subclass of the gufo:Kind \"Person\", instantiated by all persons enrolled in a school."
+    },
+    "attributes" : [ "external" ],
+    "id" : "10",
+    "superClasses" : [ "11", "12" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Sortal",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Sortal",
+      "en" : "Sortal"
+    },
+    "subClasses" : [ "14", "10", "15", "16" ],
+    "comment" : {
+      "en" : "A gufo:EndurantType which carries (or supplies) a principle of identity for its instances  (see Guizzardi, 2005, chapter 4)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "11",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#TemporaryRelationshipSituation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporaryRelationshipSituation",
+      "en" : "TemporaryRelationshipSituation"
+    },
+    "comment" : {
+      "en" : "A gufo:Situation in which a gufo:Endurant temporarily stands in a relation with another gufo:Endurant (or other endurants in the case of n-ary relationships). \n\nReification of a gufo:TemporaryRelationshipSituation allows qualification of the relationship with the period in time in which it applies. \n\nExamples include: the situation in which Einstein works at the Swiss Patent Office in Bern; the situation in which Elon Musk studies at the University of Pennsylvania; the situation in which John Lennon is married to Yoko Ono; and the situation in which Facebook has a lower market value than Amazon.\n\nFor material relationships, prefer the use of gufo:Relator.\n\nThis is a reification of the relationship (in a solution that is similar to the qualified relation pattern  http://patterns.dataincubator.org/book/qualified-relation.html)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "27",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Event",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#participatedIn",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Event",
+      "en" : "Event"
+    },
+    "subClasses" : [ "3", "30", "31", "32" ],
+    "comment" : {
+      "en" : "A gufo:ConcreteIndividual that 'occurs' or 'happens' in time. They may be instantaneous or long-running. Events are those \"things that happen to or are performed by\" (Casati and Varzi, 2015) endurants. \n\nExamples include actions and processes, such as a business meeting, a communicative act, a soccer match, a goal kick, the clicking of a mouse button; as well as natural occurrences such as an earthquake, the fall of the meteor that caused the extinction of the dinosaurs.\n\nAlso termed \"happening\", \"occurrence\", \"perdurant\" or \"occurrent\" in the philosophical literature.\n\nCasati, R. & Varzi, A. (2015). Events. In E.N. Zalta (Ed.), The Stanford Encyclopedia of Philosophy (Winter 2015 ed.). 19 Metaphysics Research Lab, Stanford University. https://plato.stanford.edu/archives/win2015/entries/events/"
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "29" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Endurant",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "34", "40" ],
+    "label" : {
+      "IRI-based" : "Endurant",
+      "en" : "Endurant"
+    },
+    "subClasses" : [ "34", "40" ],
+    "comment" : {
+      "en" : "A gufo:ConcreteIndividual that endures in time and may change qualitatively while keeping its identity. \n\nExamples include: ordinary objects of everyday experience, such as a person, a house, and a car; reified relationships, such as a marriage, a rental contract, and a person's love for another; and existentially-dependent aspects of objects, such as a car's weight, a person's language skills, and a house's color. \n\nAlso termed \"continuant\" in the philosophical literature."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "39",
+    "superClasses" : [ "29" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Fault",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Fault",
+      "en" : "Fault"
+    },
+    "comment" : {
+      "en" : "A disposition (gufo:IntrinsicMode) inhering in exactly one Component or Channel that, once activated, prevents the manifestation of one or more of that object's capabilities via cig:prevents. Corresponds to the <<category>><<mode>> Fault class of Fig. 5 (Section III.B, Definition 4)."
+    },
+    "id" : "41",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#FaultCreation",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FaultCreation",
+      "en" : "Fault Creation"
+    },
+    "comment" : {
+      "en" : "The spontaneous event in which one or more Faults come to inhere in a Component or Channel, e.g. a power-supply unit's internal winding burning out. Related to the created Fault via gufo:wasCreatedIn. Corresponds to the <<event>> FaultCreation class of Fig. 5 (Section VI, Definition 17)."
+    },
+    "id" : "31",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#ResourceType",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ResourceType",
+      "en" : "Resource Type"
+    },
+    "comment" : {
+      "en" : "A higher-order type generalising a form of energy, material, fluid, or signal exchanged between capabilities, e.g. Ink or Electricity. Following Definition 1 of the source paper, instances of cig:ResourceType are themselves types rather than individuals, so it is modelled here as a subclass of gufo:Type: e.g. an application ontology would declare :Ink rdf:type owl:Class, cig:ResourceType, using OWL 2 punning to also give :Ink an appropriate endurant superclass such as gufo:Quantity. Depicted as a <<mixin>> in Fig. 5; a plain gufo:Mixin meta-type was deliberately not asserted here, since gufo:Mixin's instances are endurants, not types."
+    },
+    "id" : "82",
+    "superClasses" : [ "83" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Producer",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Producer",
+      "en" : "Producer"
+    },
+    "comment" : {
+      "en" : "The role played by a Component when one of its capabilities provides a resource type to a Channel, giving rise to the cig:provides material relation. Corresponds to the <<role>> Producer class of Fig. 5 (Section III.B, 'The Component type')."
+    },
+    "id" : "84",
+    "superClasses" : [ "60" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#PhaseMixin",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 2,
+    "label" : {
+      "IRI-based" : "PhaseMixin",
+      "en" : "PhaseMixin"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both non-sortal and anti-rigid. It is defined by intrinsic but contingent instantiation conditions. Phase mixins are relationally independent types that capture intrinsic properties shared by instances of different kinds.\n\nFor example, \"LivingAnimal\" may be considered a gufo:PhaseMixin as a superclass of the phases \"LivingPerson\" (specializing the gufo:Kind \"Person\") and \"LivingDog\" (specializing the gufo:Kind \"Dog\")."
+    },
+    "attributes" : [ "external" ],
+    "id" : "70",
+    "superClasses" : [ "12", "49" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#OutputInterface",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "OutputInterface",
+      "en" : "Output Interface"
+    },
+    "comment" : {
+      "en" : "An Interface relating a Channel, the Component producing for it, and the resource type exchanged, giving rise to the cig:provides material relation between the producing Component and the Channel. Corresponds to the <<subkind>> OutputInterface class of Fig. 5 (Section III.B, Definition 7)."
+    },
+    "id" : "86",
+    "superClasses" : [ "51" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Interface",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "disjointUnion" : [ "86", "87" ],
+    "label" : {
+      "IRI-based" : "Interface",
+      "en" : "Interface"
+    },
+    "subClasses" : [ "86", "87" ],
+    "comment" : {
+      "en" : "A relator (gufo:Relator) mediating a resource exchange between a Component and a Channel through a particular resource type. Every Interface is either an InputInterface or an OutputInterface. Corresponds to the <<relator>> Interface class of Fig. 5 (Section III.B)."
+    },
+    "attributes" : [ "disjointUnion" ],
+    "id" : "51",
+    "superClasses" : [ "52" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#NonRigidType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "26", "12" ],
+    "label" : {
+      "IRI-based" : "NonRigidType",
+      "en" : "NonRigidType"
+    },
+    "subClasses" : [ "26", "12" ],
+    "comment" : {
+      "en" : "A gufo:EndurantType that does not apply necessarily to at least one of its instances (see Guizzardi, 2005, chapter 4).\n\nExamples include anti-rigid types, such as the role \"Student\" and the phase \"Child\", and semi-rigid types, such as the mixin \"MusicalArtist\" (which necessarily characterizes bands, but contingently characterizes people) and the mixin \"FemaleAnimal\" (which is necessarily characterizes female dogs, but contigently characterizes clownfish)."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "56",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#QualityValue",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasReifiedQualityValue",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "QualityValue",
+      "en" : "QualityValue"
+    },
+    "comment" : {
+      "en" : "A gufo:AbstractIndividual that can be associated with a gufo:Quality reflecting the perception or conception of the quality in a certain value space. \n\nInstances of gufo:QualityValue include the rational number 2.5 when used to conceive of the acidity of a portion of wine (in a pH scale), the tuple <38.8897,-77.0089> when used to conceive of the location of a building (in a space formed by latitude and longitude), or the triplet <0,0,0> when used to conceive of the color of a physical object (in a trimensional space formed by red, green and blue color components).  \n\nCorresponds to \"Quale\" in Guizzardi (2005). \n\nUse this class only for quality values (qualia) that are to be reified in the A-box and associated with a gufo:ConcreteIndividual through the object property gufo:hasReifiedQualityValue. Otherwise, use the gufo:hasQualityValue data property and a literal to determine the quality value."
+    },
+    "attributes" : [ "external" ],
+    "id" : "88",
+    "superClasses" : [ "89" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#AbstractIndividualType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AbstractIndividualType",
+      "en" : "AbstractIndividualType"
+    },
+    "comment" : {
+      "en" : "A gufo:Type whose instances are abstract individuals.\n\nInstances of gufo:AbstractIndividualType are subclasses of gufo:AbstractIndividual.\n\nExamples include the types \"NaturalNumber\", \"Set\", \"Proposition\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "94",
+    "superClasses" : [ "83" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#MaterialRelationshipType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#isDerivedFrom",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "MaterialRelationshipType",
+      "en" : "MaterialRelationshipType"
+    },
+    "individuals" : [ {
+      "iri" : "http://purl.org/capability-interaction-graph#provides",
+      "baseIri" : "http://purl.org/capability-interaction-graph",
+      "comment" : {
+        "en" : "The material relation borne by a Component playing the Producer role towards the Channel it supplies with a resource, derived from the underlying OutputInterface relator (Section III.B, 'Interfaces')."
+      },
+      "labels" : {
+        "IRI-based" : "provides",
+        "en" : "provides"
+      }
+    }, {
+      "iri" : "http://purl.org/capability-interaction-graph#providedBy",
+      "baseIri" : "http://purl.org/capability-interaction-graph",
+      "comment" : {
+        "en" : "The material relation borne by a Component playing the Consumer role towards the Channel that provides it with a resource, derived from the underlying InputInterface relator (Section III.B, 'Interfaces')."
+      },
+      "labels" : {
+        "IRI-based" : "providedBy",
+        "en" : "providedBy"
+      }
+    } ],
+    "comment" : {
+      "en" : "A gufo:RelationshipType derived from extrinsic aspects of the related entities.\n\nFor example, \"marriedWith\", \"employedBy\", \"enrolledIn\", \"admires\". \n\nFor a gufo:MaterialRelationshipType it is recommended to identify the type of extrinsic aspect from which the material relationship type is derived (see gufo:isDerivedFrom). For example \"marriedWith\" can be derived from the \"Marriage\" relator type, \"employedBy\" can be derived from the \"Employment\" relator type.\n\nEncompasses \"Material Relation\" in Guizzardi (2005) and corresponds to \"Material Relation\" in Fonseca et al. (2019)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "99",
+    "superClasses" : [ "100" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#TemporaryInstantiationSituation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporaryInstantiationSituation",
+      "en" : "TemporaryInstantiationSituation"
+    },
+    "comment" : {
+      "en" : "A gufo:Situation in which a gufo:Endurant temporarily instantiates a gufo:NonRigidType.\n\nA gufo:TemporaryInstantiationSituation can account for the time period in which a particular instantiation holds.\n\nExamples include: the situation in which Obama instantiates the role of president, which began in 20/01/2009 and lasted until 20/01/2017; the situation in which Coatria instantiates the role of EU Member, which began in 01/07/2013 (and is still on-going); and the situation in which Steve Jobs instantiates the child phase, which began in 24/02/1955 and lasted until 24/02/1965.\n\nThis solution is inspired in the qualified relation pattern (http://patterns.dataincubator.org/book/qualified-relation.html)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "55",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#AbstractIndividual",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AbstractIndividual",
+      "en" : "AbstractIndividual"
+    },
+    "subClasses" : [ "88", "106" ],
+    "comment" : {
+      "en" : "A gufo:Individual that does not exist in space-time in the same way as a gufo:ConcreteIndividual does. A gufo:AbstractIndividual has no spatiotemporal qualities in its own right. Hence, it does not make sense to ask how much space it now occupies (Gideon, 2018) and when it was created or destroyed.\n\nExamples include the number ten, the null set, and the proposition that 'Obama was the president of the United States'.\n\nRosen, Gideon, \"Abstract Objects\", The Stanford Encyclopedia of Philosophy (Winter 2018 Edition), Edward N. Zalta (ed.), <https://plato.stanford.edu/archives/win2018/entries/abstract-objects/>"
+    },
+    "attributes" : [ "external" ],
+    "id" : "89",
+    "superClasses" : [ "105" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#ExtrinsicAspect",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "52", "108" ],
+    "label" : {
+      "IRI-based" : "ExtrinsicAspect",
+      "en" : "ExtrinsicAspect"
+    },
+    "subClasses" : [ "52", "108" ],
+    "comment" : {
+      "en" : "A gufo:Aspect that depends on one or more concrete individuals.\n\nExtrinsic (or \"relational\") aspects are reified relationships, e.g., John and Mary's marriage, Mary's employment contract at Nasa, or parts of those relationships, e.g., John's obligations towards Mary in the scope of the marriage, Mary's reciprocal claims, Mary's obligations towards John, John's reciprocal claims. Extrinsic aspects can also be reified one-sided relationships, e.g., John's admiration for Obama (which depends on Obama but does not characterize him).\n\nCorresponds to \"Extrinsic Moment\" in Fonseca et al (2019). Encompasses \"Externally Depedent Mode\", \"Qua Individual\" and \"Relator\" in Guizzardi (2005)."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "66",
+    "superClasses" : [ "34" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Object",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Object",
+      "en" : "Object"
+    },
+    "subClasses" : [ "81", "2", "58", "60", "62" ],
+    "comment" : {
+      "en" : "A gufo:Endurant that does not depend on another endurant for its existence (excluding its essential parts and aspects). \n\nExamples of objects include ordinary physical entities, such as a dog, a house, a tomato, a car, Alan Turing, but also socially-defined entities such as The Rolling Stones, the European Union, the Brazilian 1988 Constitution.\n\nGuizzardi (2005) also included the more abstract notion of \"Substantial\", which generalizes both objects and amounts of matter. That notion was left out from this implementation, together with the notion of amount of matter. Support for the representation of maximally-self-connected amounts of matter is given by gufo:Quantity."
+    },
+    "attributes" : [ "external" ],
+    "id" : "40",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Aspect",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "64", "66" ],
+    "label" : {
+      "IRI-based" : "Aspect",
+      "en" : "Aspect"
+    },
+    "subClasses" : [ "64", "66" ],
+    "comment" : {
+      "en" : "A gufo:Endurant that depends on at least one other concrete individual for its existence. A gufo:Aspect is a characteristic or trait of a concrete individual that is itself conceived as an individual. \n\nExamples include: intrinsic physical aspects, such as the Moon's mass, Lassie's fur color; mental dispositions, such as Bob's math skills, his belief that the number one is odd; as well as relational aspects, such as John's love for Mary and the marriage between John and Mary. \n\nThe specific sort of existential dependence connecting aspects to their bearers is called inherence.\n\nCorresponds to \"Moment\" in Guizzardi (2005). \n\nAlso termed \"property instance\", \"particularized property\", \"individual accident\", or \"(variable) trope\" in the philosophical literature."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "34",
+    "superClasses" : [ "39" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#SubKind",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 2,
+    "label" : {
+      "IRI-based" : "SubKind",
+      "en" : "SubKind"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both sortal and rigid. It specializes a gufo:Kind carrying the principle of identity supplied by that kind. Every gufo:SubKind should directly or indirectly specialize a gufo:Kind.\n\nFor example, the gufo:Kind \"Lion\" may be specialized into the \"Lionness\" and \"Male Lion\" subkinds, while the gufo:Kind \"Computer\" may be specialized into the \"Laptop\" and \"Desktop\" subkinds."
+    },
+    "attributes" : [ "external" ],
+    "id" : "16",
+    "superClasses" : [ "11", "21" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#NonSortal",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NonSortal",
+      "en" : "NonSortal"
+    },
+    "subClasses" : [ "25", "20", "70", "48" ],
+    "comment" : {
+      "en" : "A gufo:EndurantType that applies to individuals of different kinds (see Guizzardi, 2005, chapter 4).\n\nNon-sortals do not provide a uniform principle of identity for their instances; instead, they just classify things that share common properties but which obey different principles of identity.\n\nAlso termed \"dispersive\" types in the philosophical literature."
+    },
+    "attributes" : [ "external" ],
+    "id" : "49",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Relator",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#mediates",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Relator",
+      "en" : "Relator"
+    },
+    "subClasses" : [ "51" ],
+    "comment" : {
+      "en" : "A gufo:ExtrinsicAspect that connects (involves, mediates) two or more concrete individuals. Relators are reified relationships composed of reciprocal extrinsic modes.\n\nExamples of relators include John and Mary's marriage (composed of John's obligations towards Mary in the scope of the marriage, Mary's reciprocal claims, Mary's obligations towards John, John's reciprocal claims), Mary's employment contract at Nasa, a covalent bond between two atoms."
+    },
+    "attributes" : [ "external" ],
+    "id" : "52",
+    "superClasses" : [ "66" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#ErroneousCapability",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ErroneousCapability",
+      "en" : "Erroneous Capability"
+    },
+    "comment" : {
+      "en" : "The phase of a Capability during the existence of an Error over it. Covering and disjoint with FunctionalCapability. Corresponds to the <<phaseMixin>> Erroneous Capability class of Fig. 5 (Section III.B)."
+    },
+    "id" : "8",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#RoleMixin",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 1,
+    "label" : {
+      "IRI-based" : "RoleMixin",
+      "en" : "RoleMixin"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both non-sortal and anti-rigid. It is defined by relational instantiation conditions. Role mixins are relationally dependent types, capturing relational properties shared by instances of different kinds.\n\nFor example, \"Customer\" may be considered a gufo:RoleMixin as a superclass of the roles \"CorporateCustomer\" (specializing the gufo:Kind \"BusinessOrganization\") and \"PersonalCustomer\" (specializing the gufo:Kind \"Person\")."
+    },
+    "attributes" : [ "external" ],
+    "id" : "48",
+    "superClasses" : [ "12", "49" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#ComparativeRelationshipType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#isDerivedFrom",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ComparativeRelationshipType",
+      "en" : "ComparativeRelationshipType"
+    },
+    "comment" : {
+      "en" : "A gufo:RelationshipType derived from intrinsic aspects of the related entities.\n\nFor example, \"heavierThan\", \"olderThan\". \n\nFor a gufo:ComparativeRelationshipType it is recommended to identify the types of intrinsic aspects from which it is derived (see gufo:isDerivedFrom). For example \"heavierThan\" is derived from the \"Weight\" quality type.\n\nNote that, in the case of relationships that may change in different circumstances or times, the use of a qualified relation pattern enables indicating the period of time in which the relationship holds. See gufo:TemporaryRelationshipSituation.\n\nCorresponds to \"comparative formal relation\" in Guizzardi (2005) and \"Comparative Relation\" in Fonseca et al. (2019)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "120",
+    "superClasses" : [ "100" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Collection",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "1", "6" ],
+    "label" : {
+      "IRI-based" : "Collection",
+      "en" : "Collection"
+    },
+    "subClasses" : [ "1", "6" ],
+    "comment" : {
+      "en" : "A complex gufo:Object whose parts (the members of the collection) have a uniform structure (i.e., members are conceived as playing the same role in the collection). Collections may have a fixed or variable membership, which can be asserted using gufo:FixedCollection and gufo:VariableCollection respectively.\n\nExamples include a deck of cards, a pile of bricks, a forest (conceived as a collection of trees), and a group of people.\n\nCollections in many cases constitute a functional complex. For example, a pile of bricks may constitute a wall, a group of people may constitute a football team.\n\nA gufo:Collection may be decomposed into \"smaller\" collections. For instance, a group of people may be decomposed into a group of English speakers and a group of Italian speakers. Sub collections may or may not share members among them."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "2",
+    "superClasses" : [ "40" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#SituationType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SituationType",
+      "en" : "SituationType"
+    },
+    "comment" : {
+      "en" : "A gufo:Type whose instances are situations.\n\nInstances of gufo:SituationType are subclasses of gufo:Situation.\n\nExamples include \"HazardousSituation\", \"PersonHasFever\",  \"PersonIsStudent\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "79",
+    "superClasses" : [ "75" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Capability",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "disjointUnion" : [ "8", "18" ],
+    "label" : {
+      "IRI-based" : "Capability",
+      "en" : "Capability"
+    },
+    "subClasses" : [ "8", "18" ],
+    "comment" : {
+      "en" : "A disposition (gufo:IntrinsicMode) inhering in exactly one Component or Channel, describing a possible behaviour of its bearer, e.g. 'provide electricity' or 'deposit ink'. A capability may be manifested as a Function via gufo:manifestedIn, and is, at any time, in exactly one of its FunctionalCapability or ErroneousCapability phases. Corresponds to the <<category>><<mode>> Capability class of Fig. 5 (Section III.B, Definition 2)."
+    },
+    "attributes" : [ "disjointUnion" ],
+    "id" : "9",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Category",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 2,
+    "label" : {
+      "IRI-based" : "Category",
+      "en" : "Category"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both non-sortal and rigid. It captures essential properties that apply to instances of different kinds.\n\nFor example, \"PhysicalObject\" may be considered a gufo:Category, encompassing objects such as cars, planets, trees. \"Agent\" may be a gufo:Category that classifies both people and organizations."
+    },
+    "attributes" : [ "external" ],
+    "id" : "20",
+    "superClasses" : [ "49", "21" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Phase",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Phase",
+      "en" : "Phase"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both sortal and anti-rigid. It is defined by intrinsic but contingent instantiation conditions. Phases are relationally independent types that capturec intrinsic properties shared by instances of a given kind.\n\nFor example, \"Child\" may be considered a gufo:Phase as a subclass of the gufo:Kind \"Person\", instantiated by persons younger than 12. Another example is the type \"IllPerson\", which may be considered a gufo:Phase that is instantiated whenever an instance of \"Disease\" (a gufo:IntrinsicMode) inheres in a person."
+    },
+    "attributes" : [ "external" ],
+    "id" : "14",
+    "superClasses" : [ "11", "12" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#SemiRigidType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SemiRigidType",
+      "en" : "SemiRigidType"
+    },
+    "subClasses" : [ "25" ],
+    "comment" : {
+      "en" : "A gufo:NonRigidType that applies necessarily to some of its instances and contingently to some others (see Guizzardi, 2005, chapter 4)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "26",
+    "superClasses" : [ "56" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#FixedCollection",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#isSubCollectionOf",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#isCollectionMemberOf",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "FixedCollection",
+      "en" : "FixedCollection"
+    },
+    "comment" : {
+      "en" : "A gufo:Collection for which no change in membership is possible.\n\nSuch a collection obeys an extensional principle of identity, i.e., two fixed collections are the same if, and only if, they have the same members.\n\nConsider, for example, a group of people understood as a gufo:FixedCollection. In this case, any change in the membership of the group (e.g., the addition of one person) would in fact create a different group of people. In this case, the gufo:FixedCollection may be contrasted with the complexes they constitute. For instance, The Beatles (the band conceived as a gufo:FunctionalComplex) was in a certain circumstance constituted by the collection {John, Paul, George, Pete} and in another one constituted by the collection {John, Paul, George, Ringo}. The replacement of Pete Best by Ringo Star does not alter the identity of the band, but creates a  different group of people."
+    },
+    "attributes" : [ "external" ],
+    "id" : "6",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Kind",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 1,
+    "label" : {
+      "IRI-based" : "Kind",
+      "en" : "Kind"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both sortal and rigid. It provides a uniform principle of identity for its instances. Every gufo:Endurant instantiates one and only one gufo:Kind. \n\nExamples include kinds of ordinary objects of everyday experience, such as: \"Person\", \"House\", \"Car\"; kinds of relators, such as \"Marriage\", \"RentalContract\"; kinds of existentially-dependent aspects of objects, such as \"Weight\", \"Belief\", \"Vulnerability\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "15",
+    "superClasses" : [ "11", "21" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#ExtrinsicMode",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#externallyDependsOn",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#inheresIn",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ExtrinsicMode",
+      "en" : "ExtrinsicMode"
+    },
+    "comment" : {
+      "en" : "A gufo:ExtrinsicAspect that inheres in a concrete individual and depends on others for its existence.\n\nA gufo:ExtrinsicMode can be understood as a reified one-sided relationship, such as John's admiration for Mary.\n\nCorresponds to \"Extrinsic Moment\" in Fonseca et al (2019). Encompasses what \"Externally Dependent Mode\", \"Qua Individual\" and \"Relator\" in Guizzardi (2005)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "108",
+    "superClasses" : [ "66" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Participation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#participatedIn",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Participation",
+      "en" : "Participation"
+    },
+    "comment" : {
+      "en" : "A gufo:Event that depends on a single object. \n\nParticipations can be used to partition an event into portions, each of which depend exclusively on a single object. Consider a business meeting with multiple participants, including John and Mary. John's participation in the meeting encompasses all events that are part of the meeting and that depend solely on him. Likewise, Mary's participation encompasses all events that are part of the meeting and that depend solely on her. Similarly, in Brutus’ stabbing of Caesar, we may identify the participations of Brutus, of Caesar, and of the dagger."
+    },
+    "attributes" : [ "external" ],
+    "id" : "32",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#EventType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "EventType",
+      "en" : "EventType"
+    },
+    "comment" : {
+      "en" : "A gufo:Type whose instances are events.\n\nInstances of gufo:EventType are subclasses of gufo:Event.\n\nExamples include \"Business Meeting\", \"Birth\", \"Musical Performance\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "77",
+    "superClasses" : [ "75" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#ConcreteIndividual",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "39", "4", "28" ],
+    "label" : {
+      "IRI-based" : "ConcreteIndividual",
+      "en" : "ConcreteIndividual"
+    },
+    "subClasses" : [ "39", "4", "28" ],
+    "comment" : {
+      "en" : "A gufo:Individual that exists in space-time. \n\nConcrete individuals comprise not only object-like entities (a car, a mountain, a person, a marriage, a belief), but also events (a business meeting, a soccer match) and situations (the situation in which a person weighs 80 kilograms, the situation in which a bank account is overdrawn)."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "29",
+    "superClasses" : [ "105" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Quantity",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#isSubQuantityOf",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Quantity",
+      "en" : "Quantity"
+    },
+    "comment" : {
+      "en" : "A complex gufo:Object that is a maximally-connected portion of stuff. A gufo:Quantity has a fixed constitution, and thus, removing or adding a sub-quantity would result in a different quantity.\n\nExamples include the portion of wine in a wine tank, a lump of clay, the gold that constitutes a wedding ring.\n\nAlso termed \"quantity of matter\", \"objectified portion of matter\", \"piece\" in the philosophical literature."
+    },
+    "attributes" : [ "external" ],
+    "id" : "62",
+    "superClasses" : [ "40" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#RelationshipType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RelationshipType",
+      "en" : "RelationshipType"
+    },
+    "subClasses" : [ "120", "99" ],
+    "comment" : {
+      "en" : "A gufo:Type whose instances are ordered pairs of related entities. Instances of gufo:RelationshipType are object properties in UFO-based ontologies.\n\nThe object properties \"marriedWith\" and \"enrolledIn\" are examples of material relationship types. The object properties \"heavierThan\", \"olderThan\" are examples of comparative relationship types.\n\nThe use of gufo:RelationshipType and its subclasses requires OWL 2 punning.\n\nCorresponds to \"Relation\" in Guizzardi (2005) and Fonseca et al. (2019)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "100",
+    "superClasses" : [ "83" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#VariableCollection",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VariableCollection",
+      "en" : "VariableCollection"
+    },
+    "comment" : {
+      "en" : "A gufo:Collection for which change in membership is possible.\n\nSuch a collection obeys an intensional principle of identity, i.e., change in membership does not necessarily create a different collection.\n\nFor example, KLM's fleet of airplanes could be understood as a gufo:VariableCollection. In this case, when the company acquires (or retires) an airplane, the fleet changes. Note that, in this case, the airplanes are conceptualized as playing the role of \"member of a fleet\". If various roles for the parts of a fleet were envisioned (such as \"cargo airplane\", \"passenger airplane\"), then a fleet would be best understood as a gufo:FunctionalComplex.\n\nSee gufo:TemporaryParthoodSituation for the pattern to represent the relation of a variable collection to its temporary parts.",
+      "undefined" : "http://purl.org/nemo/gufo#TemporaryParthoodSituation"
+    },
+    "attributes" : [ "external" ],
+    "id" : "1",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#EndurantType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "11", "49", "21", "56" ],
+    "label" : {
+      "IRI-based" : "EndurantType",
+      "en" : "EndurantType"
+    },
+    "subClasses" : [ "11", "49", "21", "56" ],
+    "comment" : {
+      "en" : "A gufo:Type whose instances are endurants. \n\nInstances of gufo:EndurantType are subclasses of gufo:Endurant.\n\nExamples include the object kind \"Person\", the phase \"Child\", the relator kind \"Marriage\".\n\nSee Guizzardi et al. (2018) for details concerning the taxonomy of endurant types included here."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "13",
+    "superClasses" : [ "75" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Component",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Component",
+      "en" : "Component"
+    },
+    "subClasses" : [ "163", "84" ],
+    "comment" : {
+      "en" : "A physical entity bearing one or more capabilities, e.g. a power-supply unit, an ink reservoir, or a print head. Components are treated as mereologically atomic: this ontology makes no commitment to their internal parthood structure. Corresponds to the <<mixin>> Component class of Fig. 5 (Section III.B, Definition 5)."
+    },
+    "id" : "60",
+    "superClasses" : [ "40" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Type",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Type",
+      "en" : "Type"
+    },
+    "subClasses" : [ "82", "94", "75", "100" ],
+    "comment" : {
+      "en" : "An entity that may be instantiated by (or predicated over) other entities. Types encompass what we often call \"sorts\", \"kinds\", \"categories\", etc. \n\nExamples include the kind \"Person\", the event type \"Earthquake\", and the abstract individual type \"NaturalNumber\". Relations, such as \"marriedTo\" and \"olderThan\", are also considered as types.\n\nInstances of gufo:Type are classes, and should specialize the taxonomy of individuals of gUFO. For example, \"Person\" is a gufo:Type (more specifically a gufo:Kind), specializing gufo:Object. The mechanism that allows for this is called punning in OWL 2.\n\nEncompasses the notion of \"Universal\" in Guizzardi (2005)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#FunctionalCapability",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FunctionalCapability",
+      "en" : "Functional Capability"
+    },
+    "comment" : {
+      "en" : "The phase of a Capability outside the existence of an Error over it. Covering and disjoint with ErroneousCapability. Corresponds to the <<phaseMixin>> Functional Capability class of Fig. 5 (Section III.B)."
+    },
+    "id" : "18",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#TemporaryConstitutionSituation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporaryConstitutionSituation",
+      "en" : "TemporaryConstitutionSituation"
+    },
+    "comment" : {
+      "en" : "A gufo:Situation in which a gufo:Endurant temporarly constitutes another gufo:Endurant.\n\nWhen constitution of an object may change in time, it may be qualified by the period in time in which the relation applies. \n\nExamples include: the situation in which the Beatles is constituted by the group composed of {John,Paul,Ringo,George}; and the situation in which the statue of Venus de Milo was constituted by its original quantity of marble (including its arms).\n\nThis is a reification of constitution (in a solution that is similar to the qualified relation pattern  http://patterns.dataincubator.org/book/qualified-relation.html)"
+    },
+    "attributes" : [ "external" ],
+    "id" : "141",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "91",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#IntrinsicMode",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "IntrinsicMode",
+      "en" : "IntrinsicMode"
+    },
+    "subClasses" : [ "41", "9" ],
+    "comment" : {
+      "en" : "A gufo:IntrinsicAspect that is not measurable.\n\nFor example, Bob's belief that the Eiffel Tower is in Paris, his math skills, his headache.\n\nCorresponds to \"Mode\" in Guizzardi (2005)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "42",
+    "superClasses" : [ "64" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "73",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "114",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "183",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "120", "99" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "170"
+  }, {
+    "instances" : 0,
+    "union" : [ "41", "9" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "186"
+  }, {
+    "instances" : 0,
+    "union" : [ "58", "60" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "185"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#ConcreteIndividualType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConcreteIndividualType",
+      "en" : "ConcreteIndividualType"
+    },
+    "subClasses" : [ "77", "13", "79" ],
+    "comment" : {
+      "en" : "A gufo:Type whose instances are concrete individuals.\n\nInstances of gufo:ConcreteIndividualType are subclasses of gufo:ConcreteIndividual.\n\nExamples include the gufo:Kind \"Person\", the gufo:Category \"Physical Object\", the gufo:EventType \"Business Meeting\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "75",
+    "superClasses" : [ "83" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Mixin",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 1,
+    "label" : {
+      "IRI-based" : "Mixin",
+      "en" : "Mixin"
+    },
+    "comment" : {
+      "en" : "A gufo:EndurantType that is both non-sortal and semi-rigid. As a semi-rigid type, it applies necessarily to some of its instances and contingently to some others. As a non-sortal, it captures properties shared by instances of different kinds.\n\nFor example, the type \"FemaleAnimal\" may be considered a gufo:Mixin as it applies necessarily to animals of certain species, e.g., lions and sharks, while it applies contingently to animals of other species such as clownfish and mushroom corals (which may change sex given certain conditions)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "25",
+    "superClasses" : [ "26", "49" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "93",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "122",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#QualityValueAttributionSituation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#concernsReifiedQualityValue",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#concernsQualityValue",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "QualityValueAttributionSituation",
+      "en" : "QualityValueAttributionSituation"
+    },
+    "comment" : {
+      "en" : "A gufo:Situation in which a quality value is temporarily attributed to a gufo:Endurant.\n\nA gufo:QualityValueAttributionSituation should be used only for mutable qualities, i.e. those whose value can vary in time.\n\nExamples include: the situation in which the value of a bitcoin in Euros is 6.526,12, which lasted from 10/12/2019 to 11/12/2019; the situation in which the weight of Mike Tyson was 100 kg; and the situation in which the color of Einstein' hair was grey.\n\nThis is a reification of the quality value attribution (in a solution that is similar to the qualified relation pattern  http://patterns.dataincubator.org/book/qualified-relation.html )"
+    },
+    "attributes" : [ "external" ],
+    "id" : "37",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "44",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "116",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "158",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Channel",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Channel",
+      "en" : "Channel"
+    },
+    "comment" : {
+      "en" : "The role played by an object that transports a resource type between a Producer and a Consumer, e.g. a wire or a tube. A Channel bears its own pair of transport capabilities (consumption and production) for each resource type it accommodates. An object playing the Component role may simultaneously play the Channel role. Corresponds to the <<roleMixin>> Channel class of Fig. 5 (Section III.B, Definition 6)."
+    },
+    "id" : "58",
+    "superClasses" : [ "40" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#RigidType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RigidType",
+      "en" : "RigidType"
+    },
+    "subClasses" : [ "20", "15", "16" ],
+    "comment" : {
+      "en" : "A gufo:EndurantType which applies necessarily to its instances (see Guizzardi, 2005, chapter 4).\n\nExamples include the types \"Agent\", \"Person\", \"Animal\", \"PhysicalObject\", \"Car\", and \"Tree\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "21",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#FunctionalComplex",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#TemporaryParthoodSituation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "FunctionalComplex",
+      "en" : "FunctionalComplex"
+    },
+    "comment" : {
+      "en" : "A complex gufo:Object whose parts (components) play different roles in its composition. \n\nFor example, a person could be considered a gufo:FunctionalComplex with the various organs (heart, brain, lungs, etc.) playing different roles. Another example is a scrum team, which is composed by people playing the roles of scrum master, product owner, developer, etc.\n\nTo explicitly capture temporary components, use gufo:TemporaryParthoodSituation.",
+      "undefined" : "http://purl.org/nemo/gufo#isComponentOf"
+    },
+    "attributes" : [ "external" ],
+    "id" : "81",
+    "superClasses" : [ "40" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#TemporaryParthoodSituation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporaryParthoodSituation",
+      "en" : "TemporaryParthoodSituation"
+    },
+    "comment" : {
+      "en" : "A gufo:Situation in which a gufo:Endurant is temporarily a part of another gufo:Endurant.\n\nA gufo:TemporaryParthoodSituation should only be used for mutable parts. It may be qualified by the period in time in which the relation applies. \n\nExamples include: the situation in which the United Kingdom is a member of the European Union; the situation in which Messi is a a member of the Barcelona FC squad; the situation in which an engine is part of a car; and the situation in which a transplanted heart is part of a person.\n\nNote that, since every instance of gufo:Quantity or gufo:FixedCollection only has essential parts, the gufo:TemporaryParthoodSituation should not be used to represent these parthood relations.\n \nThis solution is inspired in the qualified relation pattern (http://patterns.dataincubator.org/book/qualified-relation.html)."
+    },
+    "attributes" : [ "external" ],
+    "id" : "96",
+    "superClasses" : [ "28" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Situation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Situation",
+      "en" : "Situation"
+    },
+    "subClasses" : [ "37", "141", "55", "27", "96" ],
+    "comment" : {
+      "en" : "A gufo:ConcreteIndividual that is a particular configuration of a part of reality which can be understood as a whole and in which entities stand in relations. A situation may be counterfactual or actual. An actual situation (or in other words, a \"fact\") \"obtains\" in a certain time instant or during a time interval.\n\nNote that, in Guizzardi et al. (2013), situations were considered to obtain at a specific point in time. Here, instead, they obtain in a time interval when begin and end points differ.\n\nThe various subclasses of Situation in this implementation are used to capture \"mutable\" facts which obtain during some time and fail to obtain at other times. This includes the contingent instantiation of non-rigid types (e.g., as someone is a child at one point in time and a teenager later), the attribution of value to mutable qualities (such as a person's weight) and temporary participation in part-whole relations for replaceable parts (such as a car's tires). Other subclasses may be created to capture domain-specific notions such as \"HazardousSituation\", \"PersonHasFever\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "28",
+    "superClasses" : [ "29" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#IntrinsicAspect",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#inheresIn",
+        "type" : "iri"
+      } ]
+    },
+    "disjointUnion" : [ "133", "42" ],
+    "label" : {
+      "IRI-based" : "IntrinsicAspect",
+      "en" : "IntrinsicAspect"
+    },
+    "subClasses" : [ "133", "42" ],
+    "comment" : {
+      "en" : "A gufo:Aspect that depends on a single concrete individual in which it inheres. \n\nExamples include intrinsic physical aspects, such as the Moon's mass, Lassie's fur color; the fragility of John Lennon's glasses; mental dispositions, such as Bob's math skills, his belief that the number one is odd.\n\nA gufo:IntrinsicAspect is classified as a gufo:Quality (e.g., an apple's weight, the height of the Statue of Liberty) if it is measurable by a certain value space, or as a gufo:IntrinsicMode (e.g. Bob's belief that the Eiffel Tower is in Paris) otherwise.\n\nCorresponds to \"Intrinsic Moment\" in Guizzardi (2005). Different from Guizzardi (2005), here we consider that aspects can inhere in concrete individuals in general, and not only in endurants."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "64",
+    "superClasses" : [ "34" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Quality",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Quality",
+      "en" : "Quality"
+    },
+    "comment" : {
+      "en" : "A gufo:IntrinsicAspect that is measurable by some value spaces. A quality may be used to compare individuals, on the basis of the value it takes in a certain quality space (for instance, a position within the RGB spectrum).\n\nExamples include the weight of a person, the name of organization, the color of a car, and the duration of a concert."
+    },
+    "attributes" : [ "external" ],
+    "id" : "133",
+    "superClasses" : [ "64" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#AntiRigidType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AntiRigidType",
+      "en" : "AntiRigidType"
+    },
+    "subClasses" : [ "14", "70", "10", "48" ],
+    "comment" : {
+      "en" : "A gufo:NonRigidType that applies contingently to all its instances (see Guizzardi, 2005, chapter 4).\n\nExamples include the gufo:Phase \"Child\", the gufo:PhaseMixin \"InfantAnimal\", the gufo:Role \"Student\", and the gufo:RoleMixin \"Customer\"."
+    },
+    "attributes" : [ "external" ],
+    "id" : "12",
+    "superClasses" : [ "56" ]
+  }, {
+    "iri" : "http://www.w3.org/2006/time#Instant",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Instant",
+      "en" : "Instant"
+    },
+    "comment" : {
+      "en" : "An gufo:AbstractIndividual that reifies time instants. It is used as a target of the gufo:hasBeginPoint and gufo:hasEndPoint object properties."
+    },
+    "attributes" : [ "external" ],
+    "id" : "106",
+    "superClasses" : [ "89" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Consumer",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Consumer",
+      "en" : "Consumer"
+    },
+    "comment" : {
+      "en" : "The role played by a Component when one of its capabilities is provided a resource type by a Channel, giving rise to the cig:providedBy material relation. Corresponds to the <<role>> Consumer class of Fig. 5 (Section III.B, 'The Component type')."
+    },
+    "id" : "163",
+    "superClasses" : [ "60" ]
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#InputInterface",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "InputInterface",
+      "en" : "Input Interface"
+    },
+    "comment" : {
+      "en" : "An Interface relating a Channel, the Component consuming from it, and the resource type exchanged, giving rise to the cig:providedBy material relation between the consuming Component and the Channel. Corresponds to the <<subkind>> InputInterface class of Fig. 5 (Section III.B, Definition 8)."
+    },
+    "id" : "87",
+    "superClasses" : [ "51" ]
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#Individual",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "instances" : 0,
+    "disjointUnion" : [ "29", "89" ],
+    "label" : {
+      "IRI-based" : "Individual",
+      "en" : "Individual"
+    },
+    "subClasses" : [ "29", "89" ],
+    "comment" : {
+      "en" : "An entity that (unlike a gufo:Type) cannot be instantiated.\n\nIndividuals may be either concrete (e.g., the Earth, Mick Jagger, Brazil, the 1985 Mexico City Earthquake) or abstract (e.g., the number two, the proposition that 'three is a prime number').\n\nAlso known as \"particular\" in the philosophical literature."
+    },
+    "attributes" : [ "disjointUnion", "external" ],
+    "id" : "105"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#Function",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Function",
+      "en" : "Function"
+    },
+    "comment" : {
+      "en" : "The manifestation of a Capability as an event, e.g. the ongoing provision of electricity by a power-supply unit. Related to the manifested Capability via gufo:manifestedIn, and to the participating Component or Channel via gufo:participatedIn. Corresponds to the <<event>> Function class of Fig. 5 (Section III.B, Definition 3)."
+    },
+    "id" : "30",
+    "superClasses" : [ "4" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "5",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "7",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "33",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "53",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "57",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "63",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "65",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "78",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "80",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "85",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "90",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "92",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "95",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "98",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "101",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "107",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "109",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "110",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "111",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "112",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "113",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "115",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "103",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "97",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "127",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "128",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "129",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "126",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "130",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "131",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "132",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "134",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "135",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "136",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "137",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "138",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "139",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "140",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "142",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "143",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "144",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "145",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "146",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "123",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "147",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "148",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "149",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "150",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "151",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "152",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "153",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "154",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "155",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "156",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "157",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "159",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "160",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "161",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "162",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "164",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "165",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "166",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "167",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "168",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "169",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "171",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "172",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "173",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "174",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "175",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "176",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "177",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "178",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "179",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "180",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "181",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "182",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "184",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "187",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "124",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "188",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "189",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "190",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "191",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "192",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "193",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "194",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "195",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "196",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "197",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "198",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "199",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "200",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "201",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "202",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "203",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "204",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "205",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "206",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "207",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "104",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "208",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "209",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "210",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "211",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "212",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "213",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "214",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "125",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "215",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "216",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "217",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "218",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "219",
+    "type" : "rdf:Property"
+  }, {
+    "id" : "220",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "221",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "222",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "223",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "224",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "225",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "226",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "227",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "228",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "229",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "230",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "231",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "232",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "233",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "234",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "235",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "102",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "236",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "237",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "238",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "239",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "240",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "241",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "242",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "243",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "244",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "245",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "246",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "247",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "248",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "249",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "250",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "251",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "252",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "253",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "254",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "255",
+    "type" : "rdfs:SubClassOf"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "0"
+  }, {
+    "range" : "2",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "5"
+  }, {
+    "range" : "9",
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "7"
+  }, {
+    "range" : "9",
+    "domain" : "18",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "17"
+  }, {
+    "range" : "21",
+    "domain" : "20",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "19"
+  }, {
+    "range" : "21",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "22"
+  }, {
+    "range" : "21",
+    "domain" : "16",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "23"
+  }, {
+    "range" : "26",
+    "domain" : "25",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isAspectProperPartOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "isAspectProperPartOf",
+      "en" : "isAspectProperPartOf"
+    },
+    "superproperty" : [ "35" ],
+    "domain" : "34",
+    "comment" : {
+      "en" : "Identifies a gufo:Aspect of which the aspect is a proper part.\n\nFor example, John's obligations towards Mary in the scope of their marriage is an aspect proper part of their marriage  (and same can be said of Mary's extrinsic aspects in the scope of their marriage.)\n\nThis property can be used to represent the composition of a relator from extrisinc aspects, but also to represent complex extrisinc aspects.\n\ngufo:isAspectProperPartOf is transitive."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "33"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsQualityValue",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "38",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#concernsReifiedQualityValue",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "concernsQualityValue",
+      "en" : "concernsQualityValue"
+    },
+    "domain" : "37",
+    "comment" : {
+      "en" : "Determines a quality value associated with the gufo:ConcreteIndividual that stands in the gufo:QualityValueAttributionSituation.\n\nUse gufo:concernsReifiedQualityValue instead when quality values are refied.\n\nIt is recommended that subproperties of gufo:concernsQualityValue are created, possibly identifying the datatype to be used. For example, \"concernsTemperatureValue\" could be defined as a sub-property of gufo:concernsQualityValue with range xsd:double."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#partitions",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "partitions",
+      "en" : "partitions"
+    },
+    "superproperty" : [ "45" ],
+    "domain" : "44",
+    "comment" : {
+      "en" : "Identifies a gufo:Type whose instances are classified by exactly one instance of the partitioning higher-order type.\n\nFor example, \"AnimalSpecies\" gufo:partitions \"Animal\". Instances of \"AnimalSpecies\" such as \"Lion\", \"Hiena\" must be disjoint subclasses of \"Animal\". OWL 2 punning should be used to capture the two facets of \"Lion\" and \"Hiena\" in this example: (i) as instances of \"AnimalSpecies\", and (ii) as  subclasses of \"Animal\".\n\nNote that the partitioned type (in the example \"Animal\") may or may not be declared to be a disjoint union of the explicitly enumerated subclasses (such as \"Lion\", \"Hiena\"). This is because other instances of the higher-order type (\"AnimalSpecies\") may exist that are not explicitly enumerated in the ontology.\n\nThe partitioned type is termed the \"base type\" in the \"powertype pattern\" see Carvalho et al (2017), the higher-order type is often called the \"powertype\".  \n\nFor further details and formalization of \"partitioning\", see Carvalho et al (2017) which combines UFO with MLT (a multi-level modeling theory).  \n\nV. A. Carvalho, J. P. A. Almeida, C. M. Fonseca, and G. Guizzardi, “Multi-level ontology-based conceptual modeling,” Data & Knowledge Engineering, vol. 109, p. 3–24, 2017. <http://dx.doi.org/10.1016/j.datak.2017.03.002>"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "43"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsRelatedEndurant",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "concernsRelatedEndurant",
+      "en" : "concernsRelatedEndurant"
+    },
+    "domain" : "27",
+    "comment" : {
+      "en" : "Identifies the related gufo:Endurant in the gufo:TemporaryRelationshipSituation."
+    },
+    "attributes" : [ "functional", "object", "external" ],
+    "id" : "46"
+  }, {
+    "range" : "49",
+    "domain" : "48",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "47"
+  }, {
+    "range" : "52",
+    "domain" : "51",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "50"
+  }, {
+    "range" : "40",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsNonRigidType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "concernsNonRigidType",
+      "en" : "concernsNonRigidType"
+    },
+    "domain" : "55",
+    "comment" : {
+      "en" : "Identifies the gufo:NonRigidType that is instantiated by the endurant that stands in a gufo:TemporaryInstantiationSituation."
+    },
+    "attributes" : [ "functional", "object", "external" ],
+    "id" : "54"
+  }, {
+    "range" : "40",
+    "domain" : "58",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "57"
+  }, {
+    "range" : "40",
+    "domain" : "60",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "59"
+  }, {
+    "range" : "40",
+    "domain" : "62",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "61"
+  }, {
+    "range" : "34",
+    "domain" : "64",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "63"
+  }, {
+    "range" : "34",
+    "domain" : "66",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "65"
+  }, {
+    "range" : "49",
+    "domain" : "25",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "67"
+  }, {
+    "range" : "49",
+    "domain" : "20",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "68"
+  }, {
+    "range" : "49",
+    "domain" : "70",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "69"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#manifestedIn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "manifestedIn",
+      "en" : "manifestedIn"
+    },
+    "domain" : "34",
+    "comment" : {
+      "en" : "Identifies a gufo:Event in which the gufo:Aspect is manifested.\n\nFor example, the passing of an electrical current in a conductor is an event that encompasses the manifestation of an aspect inhering in a copper wire (the wire's  electrical conductivity)."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "71"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasBeginPointInXSDDateTimeStamp",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "73",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasBeginPointInXSDDate",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasBeginPoint",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasBeginPointInXSDDateTimeStamp",
+      "en" : "hasBeginPointInXSDDateTimeStamp"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Determines the begin point for a gufo:ConcreteIndividual, using a xsd:dateTimeStamp literal.\n\nIn the case of endurants, gufo:hasBeginPointInXSDDateTimeStamp determines the time point when the endurant comes into existence. In the case of events, this data property determines the time point when the event starts to take place. In the case of situation, it determines the time point when the situation begins to hold.\n\nUse gufo:hasBeginPoint instead when temporal entities are reified."
+    },
+    "attributes" : [ "functional", "datatype", "external" ],
+    "id" : "72"
+  }, {
+    "range" : "75",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "74"
+  }, {
+    "range" : "75",
+    "domain" : "77",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "76"
+  }, {
+    "range" : "75",
+    "domain" : "79",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "78"
+  }, {
+    "range" : "40",
+    "domain" : "81",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#component_capabilities",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "component_capabilities",
+      "en" : "component capabilities"
+    },
+    "domain" : "51",
+    "comment" : {
+      "en" : "Identifies the component-side capabilities aggregated by an Interface, i.e. the capabilities of the producing/consuming Component that the interface mediates (Section III.B, Definitions 7-8)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "85"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasEndPointInXSDDate",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "91",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasEndPoint",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasEndPointInXSDDateTimeStamp",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasEndPointInXSDDate",
+      "en" : "hasEndPointInXSDDate"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Determines the end point for a gufo:ConcreteIndividual using a xsd:date literal.\n \nIn the case of endurants, gufo:hasEndPointInXSDDate determines the time point when the endurant ceases to exist. In the case of events, this data property determines the time point when the event ends. In the case of situation, it determines the time point when the situation ceases to hold.\n\nUse gufo:hasEndPoint instead when temporal entities are reified."
+    },
+    "attributes" : [ "functional", "datatype", "external" ],
+    "id" : "90"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasValueComponent",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "93",
+    "label" : {
+      "IRI-based" : "hasValueComponent",
+      "en" : "hasValueComponent"
+    },
+    "domain" : "88",
+    "comment" : {
+      "en" : "This property is used for quality values that are defined in terms of a multidimensional quality structure (such as color conceived in terms of hue, saturation and brightness). Each value component of a quality value (a particular value for hue, a particular value for saturation, a particular value for brightness) is determined with this property. \n\nIt is recommended that subproperties of gufo:hasValueComponent are created to indicate values for particular dimensions, possibly identifying the datatype to be used. For example \"hasHueComponent\", \"hasSaturationComponent\" and \"hasBrightnessComponent\" could be used as data properties specializing gufo:hasValueComponent with the xsd:double datatype."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "92"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#standsInQualifiedParthood",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "96",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#TemporaryParthoodSituation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "standsInQualifiedParthood",
+      "en" : "standsInQualifiedParthood"
+    },
+    "superproperty" : [ "97" ],
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies a gufo:TemporaryParthoodSituation in which the endurant stands (as a temporary part). The identified gufo:TemporaryParthoodSituation is further related with an endurant (the whole) through the gufo:concernsTemporaryWhole object property. This forms a pattern to represent temporary parthood, in which the relationships between parts and wholes vary in different situations. In particular, this pattern is useful in case parts may be separated from their wholes, attached to other wholes, replaced."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "95"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#prevents",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "prevents",
+      "en" : "prevents"
+    },
+    "domain" : "41",
+    "comment" : {
+      "en" : "Identifies a Capability whose manifestation is prevented when the Fault is active. A Fault may only prevent capabilities inhering in the same bearer (Section III.B, Definition 4)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "98"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsTemporaryWhole",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "concernsTemporaryWhole",
+      "en" : "concernsTemporaryWhole"
+    },
+    "domain" : "96",
+    "comment" : {
+      "en" : "Identifies the whole (a gufo:Endurant) of which the endurant that stands in the gufo:TemporaryParthoodSituation is part."
+    },
+    "attributes" : [ "functional", "object", "external" ],
+    "id" : "101"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isProperPartOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "isProperPartOf",
+      "en" : "isProperPartOf"
+    },
+    "domain" : "44",
+    "subproperty" : [ "33", "102", "103", "104" ],
+    "comment" : {
+      "en" : "Identifies a whole of which the entity is a proper part.\n\ngufo:isProperPartOf is the most generic parthood relation in this implementation. Use the various sub-properties provided in order to represent specific types of parthood.\n\nProper parthood (and each of its sub-properties) is asymmetric and irreflexive. Nevertheless, these characteristics are not declared in this implementation since that would violate rules of OWL 2 DL that guarantee decidability of reasoning. Instead, we have focused only on declaring transitivity where applicable.\n\nNote that gufo:isProperPartOf (as the most general notion of parthood) is transitive, although the various sub-properties may not be transitive."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "35"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#constitutes",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "29",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#standsInQualifiedConstitution",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "constitutes",
+      "en" : "constitutes"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Identifies a gufo:ConcreteIndividual that is constituted (partially) by the constituent individual.\n\nFor example, the gufo:Collection of persons whose members are John, Paul, George, Ringo constituted the beatles, the gufo:Quantity of marble that constitutes the statue of Venus de Milo, and the gufo:Event of Paul raising his arm in a meeting that constitutes his voting (also a gufo:Event).\n\nIn case constitution changes in time, see gufo:standsInQualifiedConstitution."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "107"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isCollectionMemberOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "2",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#standsInQualifiedParthood",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isCollectionMemberOf",
+      "en" : "isCollectionMemberOf"
+    },
+    "superproperty" : [ "102" ],
+    "domain" : "40",
+    "comment" : {
+      "en" : "Identifies a gufo:Collection of which the object is a member. \n\nThis is the relation between John and a group of persons, and between a cow and its herd.\n\ngufo:isCollectionMemberOf is intransitive (Guizzardi, 2005, p. 185).\n\nFor membership in a gufo:VariableCollection, see gufo:standsInQualifiedParthood."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "109"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#wasCreatedIn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "wasCreatedIn",
+      "en" : "wasCreatedIn"
+    },
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies the gufo:Event which brought the gufo:Endurant into existence. \n\nFor example, a musical piece is created in an act of composition (or in an event that is part of it), a piece of legislation is created in a complex legislative process.\n\nBenevides et al. (2019) only discussed creation of objects; gufo:wasCreatedIn is extended to endurants in general. Further, in that work \"createdBy\" required the event to \"bring about\" a situation in which the created object is present. We relax this requirement here, such that the object may be created and terminated in the scope of the identified gufo:Event.\n\nA. B. Benevides, J. R. Bourguet, G. Guizzardi, R. Penãloza, and J. P. A. Almeida, “Representing a reference foundational ontology of events in SROIQ,” Applied ontology, vol. 14, iss. 3, p. 293–334, 2019. <http://dx.doi.org/10.3233/AO-190214>"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "110"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isComponentOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "81",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#standsInQualifiedParthood",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isComponentOf",
+      "en" : "isComponentOf"
+    },
+    "superproperty" : [ "102" ],
+    "domain" : "40",
+    "comment" : {
+      "en" : "Identifies a gufo:FunctionalComplex of which the object is a component.\n\nFor example, the habitation module is a component of the International Space Station, and so are each of the solar panels; Obama's brain is a component of his body, and so is his heart; the engine is a component of the HMS Queen Elizabeth (R08).\n\ngufo:isComponentOf is not transitive in the general case. Particular sub-properties may be transitive (Guizzardi, 2005, p. 183).\n\nWhen a component may change its relation to be whole, see gufo:standsInQualifiedParthood."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#component",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "60",
+    "label" : {
+      "IRI-based" : "component",
+      "en" : "component"
+    },
+    "domain" : "51",
+    "comment" : {
+      "en" : "Identifies the Component aggregated by an Interface (Section III.B, Definitions 7-8; Table VI of the source paper)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "112"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasEndPointInXSDDateTimeStamp",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "114",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasEndPoint",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasEndPointInXSDDate",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasEndPointInXSDDateTimeStamp",
+      "en" : "hasEndPointInXSDDateTimeStamp"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Determines the end point for a gufo:ConcreteIndividual using a xsd:dateTimeStamp literal.\n \nIn the case of endurants, gufo:hasEndPointInXSDDateTimeStamp determines the time point when the endurant ceases to exist. In the case of events, this data property determines the time point when the event ends. In the case of situation, it determines the time point when the situation ceases to hold.\n\nUse gufo:hasEndPoint instead when temporal entities are reified."
+    },
+    "attributes" : [ "functional", "datatype", "external" ],
+    "id" : "113"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasQualityValue",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "116",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasReifiedQualityValue",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasQualityValue",
+      "en" : "hasQualityValue"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Determines a quality value associated with the concrete individual.\n\nUse gufo:hasReifiedQualityValue instead when quality values are reified.\n\nIt is recommended that subproperties of gufo:hasQualityValue are created, possibly identifying the datatype to be used. For example, \"hasTemperatureValue\" could be defined as a sub-property of gufo:hasQualityValue whose domain is \"Temperature\" (specializing gufo:Quality) and whose range is xsd:double."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "115"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#participatedIn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "participatedIn",
+      "en" : "participatedIn"
+    },
+    "domain" : "40",
+    "comment" : {
+      "en" : "Identifies a gufo:Event in which the gufo:Object participated.\n\nExamples include the participation of Freddy Mercury in Queen's Live Aid Concert and the participation of an airplane in a flight."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "117"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsRelationshipType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "100",
+    "label" : {
+      "IRI-based" : "concernsRelationshipType",
+      "en" : "concernsRelationshipType"
+    },
+    "domain" : "27",
+    "comment" : {
+      "en" : "Identifies the gufo:RelationshipType instantiated in the gufo:TemporaryRelationshipSituation."
+    },
+    "attributes" : [ "functional", "object", "external" ],
+    "id" : "118"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasEndPoint",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "106",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasEndPointInXSDDate",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasEndPointInXSDDateTimeStamp",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasEndPoint",
+      "en" : "hasEndPoint"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Identifies the end point for a gufo:ConcreteIndividual, in the case in which time instants are reified.\n\nIn the case of endurants, this identifies the time point when the endurant ceases to exist. In the case of events, this identifies the time point when the event ends. In the case of situation, this identifies the time point when the situation ceases to hold."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "119"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isEventProperPartOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "isEventProperPartOf",
+      "en" : "isEventProperPartOf"
+    },
+    "superproperty" : [ "35" ],
+    "domain" : "4",
+    "comment" : {
+      "en" : "Identifies a gufo:Event of which the event is part. \n\nFor example, Cristiano Ronaldo's penalty kick is an event proper part of the 2016 FIFA Club World Cup Final, having ocurred in the 60th minute of that match. That match is itself an event proper part of the 2016 FIFA Club World Cup.\n\nThe match can be decomposed in different ways. For example, we can identify the participation of each player in the match (instances of gufo:Participation that are proper parts of the match) or decomposed the match using some temporal segmentation (each minute of the match, each of which is a proper part of the match).\n\ngufo:isEventProperPartOf is transitive."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "103"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#broughtAbout",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "broughtAbout",
+      "en" : "broughtAbout"
+    },
+    "domain" : "4",
+    "comment" : {
+      "en" : "Identifies a gufo:Situation that is brought about by the gufo:Event.\n\nGuizzardi et al. (2013) included a notion of \"brings-about\" that related events to a single (\"maximal\") situation, embodying all the effects of the event at the time it ends. This implementation of gufo:broughtAbout diverges from \"brings-about\" in that work because gufo:broughtAbout can be used to relate events to more than one gufo:Situation. Each gufo:Situation identified through gufo:broughtAbout should be understood as an (improper) part of the maximal situation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#standsIn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "standsIn",
+      "en" : "standsIn"
+    },
+    "domain" : "122",
+    "subproperty" : [ "123", "124", "95", "125", "126" ],
+    "comment" : {
+      "en" : "Identifies a gufo:Situation in which the entity stands. \n\nThis implementation includes sub-properties of gufo:standsIn to identify situations concerning the attribution of (mutable) values to qualities, variable relationships, the instantiation of non-contingent types, temporary parthood and temporary constitution."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "97"
+  }, {
+    "range" : "12",
+    "domain" : "48",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "127"
+  }, {
+    "range" : "105",
+    "domain" : "29",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "128"
+  }, {
+    "range" : "105",
+    "domain" : "89",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "129"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#standsInQualifiedRelationship",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "27",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#TemporaryRelationshipSituation",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#Relator",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "standsInQualifiedRelationship",
+      "en" : "standsInQualifiedRelationship"
+    },
+    "superproperty" : [ "97" ],
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies a gufo:TemporaryRelationshipSituation in which the endurant stands. The identified gufo:TemporaryRelationshipSituation is then used with the gufo:concernsRelatedEndurant and the gufo:concernsRelationshipType object properties to indicate the related element and the type of relationship that applies. This forms a pattern to represent that relationships that may change in different situations. For example, \"heavierThan\" may change when the objects involved gain or lose weight.\n\nFor material relations, prefer the use of gufo:Relator."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "126"
+  }, {
+    "range" : "28",
+    "domain" : "27",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "130"
+  }, {
+    "range" : "28",
+    "domain" : "96",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "131"
+  }, {
+    "range" : "64",
+    "domain" : "133",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "132"
+  }, {
+    "range" : "64",
+    "domain" : "42",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "134"
+  }, {
+    "range" : "12",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "135"
+  }, {
+    "range" : "12",
+    "domain" : "70",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "136"
+  }, {
+    "range" : "12",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "137"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#provides",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "58",
+    "label" : {
+      "IRI-based" : "provides",
+      "en" : "provides"
+    },
+    "domain" : "84",
+    "comment" : {
+      "en" : "The material relation borne by a Component playing the Producer role towards the Channel it supplies with a resource, derived from the underlying OutputInterface relator (Section III.B, 'Interfaces')."
+    },
+    "attributes" : [ "object" ],
+    "id" : "138"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#channel",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "58",
+    "label" : {
+      "IRI-based" : "channel",
+      "en" : "channel"
+    },
+    "domain" : "51",
+    "comment" : {
+      "en" : "Identifies the Channel aggregated by an Interface (Section III.B, Definitions 7-8; Table VI of the source paper)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "139"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsConstitutedEndurant",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "concernsConstitutedEndurant",
+      "en" : "concernsConstitutedEndurant"
+    },
+    "domain" : "141",
+    "comment" : {
+      "en" : "Identifies the constituted gufo:Endurant in the gufo:TemporaryConstitutionSituation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "140"
+  }, {
+    "range" : "28",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "142"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#wasTerminatedIn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "wasTerminatedIn",
+      "en" : "wasTerminatedIn"
+    },
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies the gufo:Event in which the gufo:Endurant was brought to an end. \n\nFor example, the Space Shuttle Challenger (OV-099) (a gufo:FunctionalComplex) was destroyed during the launch of its tenth flight (a gufo:Event). \n\nBenevides et al. (2019) only discussed termination of objects; gufo:wasCreatedIn is extended to endurants in general. This means that a gufo:Relator (such as a marriage) can be declared terminated. Further, in that work \"terminatedBy\" required the event to be \"triggered\" by a situation in which the terminated object is present. We relax this requirement here, such that the object may be created and terminated in the scope of the identified gufo:Event.\n\nA. B. Benevides, J. R. Bourguet, G. Guizzardi, R. Penãloza, and J. P. A. Almeida, “Representing a reference foundational ontology of events in SROIQ,” Applied ontology, vol. 14, iss. 3, p. 293–334, 2019. <http://dx.doi.org/10.3233/AO-190214>"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "143"
+  }, {
+    "range" : "28",
+    "domain" : "141",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "144"
+  }, {
+    "range" : "28",
+    "domain" : "55",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "145"
+  }, {
+    "range" : "141",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "146"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#standsInQualifiedInstantiation",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "55",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#TemporaryInstantiationSituation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "standsInQualifiedInstantiation",
+      "en" : "standsInQualifiedInstantiation"
+    },
+    "superproperty" : [ "97" ],
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies a gufo:TemporaryInstantiationSituation in which the endurant stands. The identified gufo:TemporaryInstantiationSituation is further related with a gufo:NonRigidType through the gufo:concernsNonRigidType object property. This forms a pattern to represent the contigent instantiation of a non-rigid type by the endurant, in which case instantiation may vary in different situations."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "123"
+  }, {
+    "range" : "96",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "147"
+  }, {
+    "range" : "27",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "148"
+  }, {
+    "range" : "11",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "149"
+  }, {
+    "range" : "21",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "150"
+  }, {
+    "range" : "48",
+    "domain" : "70",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "151"
+  }, {
+    "range" : "10",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "152"
+  }, {
+    "range" : "83",
+    "domain" : "105",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "153"
+  }, {
+    "range" : "1",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "154"
+  }, {
+    "range" : "16",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "155"
+  }, {
+    "range" : "133",
+    "domain" : "42",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "156"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isSubQuantityOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "62",
+    "label" : {
+      "IRI-based" : "isSubQuantityOf",
+      "en" : "isSubQuantityOf"
+    },
+    "superproperty" : [ "102" ],
+    "domain" : "62",
+    "comment" : {
+      "en" : "Identifies a gufo:Quantity of which the quantity is a part.\n\nFor example, the quantity of water in a wine glass is a sub-quantity of the wine in that glass.\n\ngufo:isSubQuantityOf is transitive (Guizzardi, 2005, p. 184).\n\nSub-quantities are always essential parts of their wholes. Thus, gufo:standsInQualifiedParthood is not applicable for sub-quantities."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "157"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#categorizes",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "83",
+    "label" : {
+      "IRI-based" : "categorizes",
+      "en" : "categorizes"
+    },
+    "domain" : "158",
+    "subproperty" : [ "43" ],
+    "comment" : {
+      "en" : "Identifies a gufo:Type whose instances may be classified by instances of the categorizing higher-order type.\n\nFor example, \"ShipType\" gufo:categorizes \"Ship\". Instances of \"ShipType\" such as \"Supercarrier\" and \"Cargoship\" should be declared subclasses of \"Ship\". OWL 2 punning should be used to capture the two facets of \"Supercarrier\" and \"Cargoship\" in this example: (i) as instances of \"ShipType\", and (ii) as subclasses of \"Ship\".\n\nThe categorized type is termed the \"base type\" in the \"powertype pattern\" see Carvalho et al (2017), the higher-order type is often called the \"powertype\".  \n\ngufo:categorizes is the general (unspecific) form of categorization. See  gufo:partitions for a more specific form, in which instances of the categorized type are classified by exactly one instance of the higher-order type. \n\nThe domain is gufo:Type excluding gufo:AbstractIndividualType as well as gufo:ConcreteIndividualTypes because those types are first-order types (their instances are individuals). Only instances of gufo:Type representing higher-order types can categorize a base type.\n\nFor further details and formalization of \"categorization\", see Carvalho et al (2017) which combines UFO with MLT (a multi-level modeling theory).  \n\nV. A. Carvalho, J. P. A. Almeida, C. M. Fonseca, and G. Guizzardi, “Multi-level ontology-based conceptual modeling,” Data & Knowledge Engineering, vol. 109, p. 3–24, 2017. <http://dx.doi.org/10.1016/j.datak.2017.03.002>"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#externallyDependsOn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "externallyDependsOn",
+      "en" : "externallyDependsOn"
+    },
+    "domain" : "108",
+    "comment" : {
+      "en" : "Identifies a gufo:Endurant on which the gufo:ExtrinsicMode depends.\n\nFor example, John's duty to return the book he borrowed from Mary (a gufo:ExtrinsicMode) depends externally on Mary.\n\nThe identifed gufo:Endurant should  be external to the bearer of the extrinsic mode (see Guizzardi, 2005, p. 239). In other words, the identified endurant should not be a part or an intrisic aspect of the bearer of the extrinsic mode."
+    },
+    "attributes" : [ "object", "external", "someValues", "irreflexive" ],
+    "id" : "159"
+  }, {
+    "range" : "64",
+    "domain" : "66",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "160"
+  }, {
+    "range" : "52",
+    "domain" : "108",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "161"
+  }, {
+    "range" : "77",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "162"
+  }, {
+    "range" : "28",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "164"
+  }, {
+    "range" : "79",
+    "domain" : "77",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "165"
+  }, {
+    "range" : "79",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "166"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#mediates",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "mediates",
+      "en" : "mediates"
+    },
+    "domain" : "52",
+    "comment" : {
+      "en" : "Identifies the endurants mediated by a gufo:Relator.\n\nFor example, John and Mary's marriage mediates John and Mary."
+    },
+    "attributes" : [ "object", "asymmetric", "external", "irreflexive" ],
+    "id" : "167"
+  }, {
+    "range" : "100",
+    "domain" : "75",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "168"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isDerivedFrom",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "isDerivedFrom",
+      "en" : "isDerivedFrom"
+    },
+    "domain" : "170",
+    "comment" : {
+      "en" : "Identifies a gufo:EndurantType from which the material or comparative relation can be derived. The identified gufo:EndurantType should be a subclass of gufo:Aspect, more specifically a subclass of gufo:ExtrinsicAspect in the case of a gufo:MaterialRelationshipType, and a subclass of gufo:IntrinsicAspect in the case of a gufo:ComparativeRelationshipType.\n\nFor example, \"marriedWith\" can be derived from \"Marriage\", \"heavierThan\" can be derived from \"Weight\".\n\nSee Fonseca et al. (2019)."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "169"
+  }, {
+    "range" : "28",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "171"
+  }, {
+    "range" : "4",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "172"
+  }, {
+    "domain" : "70",
+    "range" : "18",
+    "id" : "173",
+    "label" : {
+      "IRI-based" : "50",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "10",
+    "range" : "163",
+    "id" : "174",
+    "label" : {
+      "IRI-based" : "52",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "10",
+    "range" : "84",
+    "id" : "175",
+    "label" : {
+      "IRI-based" : "51",
+      "undefined" : "is a"
+    }
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasAssociatedQualityValueType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "94",
+    "label" : {
+      "IRI-based" : "hasAssociatedQualityValueType",
+      "en" : "hasAssociatedQualityValueType"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "Identifies a quality value type to which the quality type is associated. \n\nFor example, a \"Color\" quality type may be associated with a \"ColorValueInRGB\" quality value type.\n\nIt relates a specialization of gufo:Quality (an instance of gufo:EndurantType) to a specialization of gufo:QualityValue  (an instance of gufo:AbstractIndividualType).\n\nTo be used only when quality values are reified."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "176"
+  }, {
+    "domain" : "15",
+    "range" : "51",
+    "id" : "177",
+    "label" : {
+      "IRI-based" : "47",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "20",
+    "range" : "9",
+    "id" : "178",
+    "label" : {
+      "IRI-based" : "46",
+      "undefined" : "is a"
+    }
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#inheresIn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "inheresIn",
+      "en" : "inheresIn"
+    },
+    "domain" : "34",
+    "comment" : {
+      "en" : "Identifies the gufo:ConcreteIndividual in which the gufo:Aspect inheres. Inherence is a sort of existential dependence. The identified concrete individual is the \"bearer\" of the aspect.\n\nFor example, the color of an object inheres in the object and the average speed of a flight inheres in the flight."
+    },
+    "attributes" : [ "functional", "object", "asymmetric", "external", "irreflexive" ],
+    "id" : "179"
+  }, {
+    "domain" : "70",
+    "range" : "8",
+    "id" : "180",
+    "label" : {
+      "IRI-based" : "49",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "25",
+    "range" : "60",
+    "id" : "181",
+    "label" : {
+      "IRI-based" : "48",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "20",
+    "range" : "41",
+    "id" : "182",
+    "label" : {
+      "IRI-based" : "45",
+      "undefined" : "is a"
+    }
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#has",
+    "inverse" : "179",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "186",
+    "label" : {
+      "IRI-based" : "has",
+      "en" : "has"
+    },
+    "domain" : "185",
+    "comment" : {
+      "en" : "Identifies a Capability or Fault borne by a Component or Channel. Declared as the inverse of gufo:inheresIn, mirroring the inference rule of Eq. (1) in the source paper: has(alpha, f) iff inheresIn(f, alpha)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "184"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#contributedToTrigger",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "contributedToTrigger",
+      "en" : "contributedToTrigger"
+    },
+    "domain" : "28",
+    "comment" : {
+      "en" : "Identifies a gufo:Event that the gufo:Situation contributed to trigger.\n\nGuizzardi et al. (2013) defined a notion of \"triggers\" to relate the situation satisfying all the sufficient and necessary conditions with the triggered  event. This implementation differs from  \"triggers\" as defined in that work because gufo:contributedToTrigger can be used to relate more than one gufo:Situation to a gufo:Event. Each gufo:Situation identified through gufo:contributedToTrigger should be understood as an (improper) part of the situation that triggered the event."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "187"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#standsInQualifiedConstitution",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "141",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#TemporaryConstitutionSituation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "standsInQualifiedConstitution",
+      "en" : "standsInQualifiedConstitution"
+    },
+    "superproperty" : [ "97" ],
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies a gufo:TemporaryConstitutionSituation in which an endurant stands temporarily (as a constituent). The identified gufo:TemporaryConstitutionSituation is further related with an endurant (the whole) through the gufo:concernsConstitutedEndurant object property. This forms a pattern to represent temporary constitution, in which the relationships between constituents and constituted endurant vary in different situations.\n\nConsider, for example, a group of people (understood as a gufo:FixedCollection) constituting a band (understood as a gufo:FunctionalComplex). In this case, any change in the membership of the group (e.g., the replacement of one person) creates a different group of people. Therefore, the band's constitution can change in time, and the pattern using gufo:TemporaryConstitutionSituation is applicable."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "124"
+  }, {
+    "range" : "27",
+    "domain" : "96",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "188"
+  }, {
+    "range" : "27",
+    "domain" : "55",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "189"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#historicallyDependsOn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "historicallyDependsOn",
+      "en" : "historicallyDependsOn"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Identifies a gufo:ConcreteIndividual on which the concrete individual depends historically. \n\nFor example, a person is historically dependent on his/her ancestors.\n\nWhen used between events, historical dependence encompasses causation (when the event is caused by the other), but also other cases where there is dependence but not causation (when the event brings about a situation that is either insufficient or more than sufficient to trigger the historically dependent event).\n\nFor example, Real Madrid's goal in the 60th minute of the 2016 FIFA Club World Cup Final is historically dependent on (and in this case caused by) a penalty kick by Cristiano Ronaldo. The penalty kick itself is historically dependent on (but not caused by) a penalty (the occurrence of the penalty is necessary but not sufficient to cause the penalty kick as authorization of the referee is required). \n\nHistorical dependence is transitive. Hence, in the example above, Real Madrid's goal is historically dependent on the penalty."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "190"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsRelatedEndurant",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "concernsRelatedEndurant",
+      "en" : "concernsRelatedEndurant"
+    },
+    "domain" : "27",
+    "comment" : {
+      "en" : "Identifies the related gufo:Endurant in the gufo:TemporaryRelationshipSituation."
+    },
+    "attributes" : [ "functional", "object", "external", "someValues" ],
+    "id" : "191"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#externallyDependsOn",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "externallyDependsOn",
+      "en" : "externallyDependsOn"
+    },
+    "domain" : "108",
+    "comment" : {
+      "en" : "Identifies a gufo:Endurant on which the gufo:ExtrinsicMode depends.\n\nFor example, John's duty to return the book he borrowed from Mary (a gufo:ExtrinsicMode) depends externally on Mary.\n\nThe identifed gufo:Endurant should  be external to the bearer of the extrinsic mode (see Guizzardi, 2005, p. 239). In other words, the identified endurant should not be a part or an intrisic aspect of the bearer of the extrinsic mode."
+    },
+    "attributes" : [ "object", "external", "irreflexive" ],
+    "id" : "192"
+  }, {
+    "range" : "55",
+    "domain" : "141",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "193"
+  }, {
+    "range" : "55",
+    "domain" : "37",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "194"
+  }, {
+    "range" : "96",
+    "domain" : "55",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "195"
+  }, {
+    "range" : "27",
+    "domain" : "141",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "196"
+  }, {
+    "range" : "29",
+    "domain" : "39",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "197"
+  }, {
+    "range" : "39",
+    "domain" : "40",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "198"
+  }, {
+    "range" : "29",
+    "domain" : "28",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "199"
+  }, {
+    "range" : "29",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "200"
+  }, {
+    "range" : "39",
+    "domain" : "34",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "201"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasReifiedQualityValue",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "88",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasQualityValue",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasReifiedQualityValue",
+      "en" : "hasReifiedQualityValue"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Identifies an instance of gufo:QualityValue to reflect the perception or conception of a quality in a certain value space. \n\nUse this property only for quality values that are to be reified in the A-box and associated with a gufo:ConcreteIndividual. Otherwise, use the gufo:hasQualityValue data property and a literal to determine the quality value.\n\nThe full representation pattern for quality values involves first identifying a gufo:Quality that inheres in a concrete individual and then associating it with a reified quality value. For example, let us consider the color of Yves Klein's \"Blue Monochrome\" painting made in 1961 (MoMA's object with number 618.1967). In the full pattern, an instance of gufo:Quality that inheres in the physical object (the color of that painting) is associated with a gufo:QualityValue (say the triplet <0, 47, 167> for that painting) through gufo:hasReifiedQualityValue. The full pattern is recommended when different quality spaces are expected to be used for the same quality. For example, the color of that painting could also be associated with a quadruple <100, 72, 0, 35> representing the same color in a CMYK space.\n\nWhen the full pattern is not required, gufo:hasReifiedQualityValue can also be used to directly associate a concrete individual (without identifying the quality) with a quality value."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "202"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#providedBy",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "58",
+    "label" : {
+      "IRI-based" : "providedBy",
+      "en" : "providedBy"
+    },
+    "domain" : "163",
+    "comment" : {
+      "en" : "The material relation borne by a Component playing the Consumer role towards the Channel that provides it with a resource, derived from the underlying InputInterface relator (Section III.B, 'Interfaces')."
+    },
+    "attributes" : [ "object" ],
+    "id" : "203"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#accommodates",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "82",
+    "label" : {
+      "IRI-based" : "accommodates",
+      "en" : "accommodates"
+    },
+    "domain" : "58",
+    "comment" : {
+      "en" : "Identifies a resource type that a Channel is able to transport. A channel can only produce/consume resource types it accommodates (Section III.B, Definition 6)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "204"
+  }, {
+    "range" : "4",
+    "domain" : "32",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "205"
+  }, {
+    "range" : "4",
+    "domain" : "31",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "206"
+  }, {
+    "range" : "11",
+    "domain" : "16",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "207"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isSituationProperPartOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "28",
+    "label" : {
+      "IRI-based" : "isSituationProperPartOf",
+      "en" : "isSituationProperPartOf"
+    },
+    "superproperty" : [ "35" ],
+    "domain" : "28",
+    "comment" : {
+      "en" : "Identifies a gufo:Situation of which the situation is a part.\n\nExamples include: the situation in which John has influenza is part of the situation in which John has influenza and he is tired; the situation in which John is friends with Mary is part of the situation in which he is friends with Mary and Alice; the situation in which John is married to Alice is part of the situation in which John is married to Alice, while she works at the Free University of Bozen-Bolzano."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "104"
+  }, {
+    "range" : "11",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "208"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#produces",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "82",
+    "label" : {
+      "IRI-based" : "produces",
+      "en" : "produces"
+    },
+    "domain" : "9",
+    "comment" : {
+      "en" : "Identifies a resource type that is output when a Capability is manifested as a Function (Section III.B, Definition 2, Equation 8)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "209"
+  }, {
+    "range" : "4",
+    "domain" : "30",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "210"
+  }, {
+    "range" : "4",
+    "domain" : "3",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "211"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasBeginPoint",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "106",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasBeginPointInXSDDate",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasBeginPointInXSDDateTimeStamp",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasBeginPoint",
+      "en" : "hasBeginPoint"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Identifies the begin point for a gufo:ConcreteIndividual, in the case in which time instants are reified. \n\nIn the case of endurants, this identifies the time point when the endurant comes into existence. In the case of events, this identifies the time point when the event starts to take place. In the case of situation, this identifies the time point when the situation begins to hold.\n\nIf time instants are not reified, use gufo:hasBeginPointInXSDDate or gufo:hasBeginPointInXSDDateTimeStamp."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "212"
+  }, {
+    "range" : "11",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "213"
+  }, {
+    "range" : "11",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "214"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#standsInQualifiedAttribution",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "37",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#QualityValueAttributionSituation",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "standsInQualifiedAttribution",
+      "en" : "standsInQualifiedAttribution"
+    },
+    "superproperty" : [ "97" ],
+    "domain" : "39",
+    "comment" : {
+      "en" : "Identifies a gufo:QualityValueAttributionSituation in which the endurant stands. The identified gufo:QualityValueAttributionSituation is then used with the gufo:concernsQualityValue data property or the gufo:concernsReifiedQualityValue object property to indicate a quality value attributed to the gufo:Endurant standing in the situation. This forms a pattern to represent that quality values may differ in different situations."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "125"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsQualityType",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "concernsQualityType",
+      "en" : "concernsQualityType"
+    },
+    "domain" : "37",
+    "comment" : {
+      "en" : "Identifies the quality type (a gufo:EndurantType subclassing gufo:Quality) whose value is attributed in the gufo:QualityValueAttributionSituation."
+    },
+    "attributes" : [ "functional", "object", "external" ],
+    "id" : "215"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isSubCollectionOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "2",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#standsInQualifiedParthood",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isSubCollectionOf",
+      "en" : "isSubCollectionOf"
+    },
+    "superproperty" : [ "102" ],
+    "domain" : "2",
+    "comment" : {
+      "en" : "Identifies a gufo:Collection of which the collection is a sub-collection. All members of the sub-collection are members of the identified super-collection.\n\ngufo:isSubCollectionOf is transitive (Guizzardi, 2005, p. 186).\n\nFor parthood involving one or more varied collections, see gufo:standsInQualifiedParthood."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "216"
+  }, {
+    "domain" : "16",
+    "range" : "87",
+    "id" : "217",
+    "label" : {
+      "IRI-based" : "54",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "48",
+    "range" : "58",
+    "id" : "218",
+    "label" : {
+      "IRI-based" : "53",
+      "undefined" : "is a"
+    }
+  }, {
+    "domain" : "16",
+    "range" : "86",
+    "id" : "219",
+    "label" : {
+      "IRI-based" : "55",
+      "undefined" : "is a"
+    }
+  }, {
+    "range" : "89",
+    "domain" : "106",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "220"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#hasBeginPointInXSDDate",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "183",
+    "annotations" : {
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasBeginPoint",
+        "type" : "iri"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "http://purl.org/nemo/gufo#hasBeginPointInXSDDateTimeStamp",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasBeginPointInXSDDate",
+      "en" : "hasBeginPointInXSDDate"
+    },
+    "domain" : "29",
+    "comment" : {
+      "en" : "Determines the begin point for a gufo:ConcreteIndividual, using a xsd:date literal.\n\nIn the case of endurants, gufo:asBeginPointInXSDDate determines the time point when the endurant comes into existence. In the case of events, this data property determines the time point when the event starts to take place. In the case of situation, it determines the time point when the situation begins to hold.\n\nUse gufo:hasBeginPoint instead when temporal entities are reified."
+    },
+    "attributes" : [ "functional", "datatype", "external" ],
+    "id" : "221"
+  }, {
+    "range" : "89",
+    "domain" : "88",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "222"
+  }, {
+    "range" : "66",
+    "domain" : "108",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "223"
+  }, {
+    "range" : "66",
+    "domain" : "52",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "224"
+  }, {
+    "range" : "42",
+    "domain" : "9",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "225"
+  }, {
+    "range" : "56",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "226"
+  }, {
+    "range" : "56",
+    "domain" : "26",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "227"
+  }, {
+    "range" : "100",
+    "domain" : "94",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "228"
+  }, {
+    "range" : "75",
+    "domain" : "94",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "229"
+  }, {
+    "range" : "26",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "230"
+  }, {
+    "range" : "40",
+    "domain" : "34",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "231"
+  }, {
+    "range" : "81",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "232"
+  }, {
+    "range" : "62",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "233"
+  }, {
+    "range" : "62",
+    "domain" : "81",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "234"
+  }, {
+    "range" : "99",
+    "domain" : "120",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "235"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#isObjectProperPartOf",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "isObjectProperPartOf",
+      "en" : "isObjectProperPartOf"
+    },
+    "superproperty" : [ "35" ],
+    "domain" : "40",
+    "subproperty" : [ "216", "111", "157", "109" ],
+    "comment" : {
+      "en" : "Identifies a gufo:Object of which the object is a part.\n\nThis is a general parthood relation between objects. Use the various sub-properties provided in order to represent specific types of parthood, each of which has specialized semantics (and different formal properties in this implementation, in particular, transitivity (Guizzardi, 2005, section 5.6)."
+    },
+    "attributes" : [ "object", "transitive", "external" ],
+    "id" : "102"
+  }, {
+    "range" : "41",
+    "domain" : "9",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "236"
+  }, {
+    "range" : "29",
+    "domain" : "89",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "237"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#channel_capabilities",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "channel_capabilities",
+      "en" : "channel capabilities"
+    },
+    "domain" : "51",
+    "comment" : {
+      "en" : "Identifies the unique channel-side (transport) capability aggregated by an Interface: the channel's consumption capability for an InputInterface, or its production capability for an OutputInterface (Section III.B, Definitions 7-8)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "238"
+  }, {
+    "range" : "51",
+    "domain" : "86",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "239"
+  }, {
+    "range" : "83",
+    "domain" : "100",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "240"
+  }, {
+    "range" : "42",
+    "domain" : "41",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "241"
+  }, {
+    "range" : "51",
+    "domain" : "87",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "242"
+  }, {
+    "range" : "83",
+    "domain" : "82",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "243"
+  }, {
+    "range" : "60",
+    "domain" : "84",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "244"
+  }, {
+    "range" : "83",
+    "domain" : "75",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "245"
+  }, {
+    "range" : "83",
+    "domain" : "94",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "246"
+  }, {
+    "range" : "60",
+    "domain" : "163",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "247"
+  }, {
+    "range" : "13",
+    "domain" : "56",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "248"
+  }, {
+    "iri" : "http://purl.org/nemo/gufo#concernsReifiedQualityValue",
+    "baseIri" : "http://purl.org/nemo/gufo",
+    "range" : "88",
+    "label" : {
+      "IRI-based" : "concernsReifiedQualityValue",
+      "en" : "concernsReifiedQualityValue"
+    },
+    "domain" : "37",
+    "comment" : {
+      "en" : "Identifies the gufo:QualityValue (i.e., the reified quality value) associated with the endurant that stands in the gufo:QualityValueAttributionSituation.",
+      "undefined" : "http://purl.org/nemo/gufo#concernsQualityValue"
+    },
+    "attributes" : [ "functional", "object", "external" ],
+    "id" : "249"
+  }, {
+    "range" : "13",
+    "domain" : "21",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "250"
+  }, {
+    "range" : "100",
+    "domain" : "99",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "251"
+  }, {
+    "range" : "100",
+    "domain" : "120",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "252"
+  }, {
+    "iri" : "http://purl.org/capability-interaction-graph#consumes",
+    "baseIri" : "http://purl.org/capability-interaction-graph",
+    "range" : "82",
+    "label" : {
+      "IRI-based" : "consumes",
+      "en" : "consumes"
+    },
+    "domain" : "9",
+    "comment" : {
+      "en" : "Identifies a resource type required as a prerequisite for the manifestation of a Capability as a Function (Section III.B, Definition 2, Equation 8)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "253"
+  }, {
+    "range" : "13",
+    "domain" : "49",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "254"
+  }, {
+    "range" : "13",
+    "domain" : "11",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "255"
+  } ]
+}

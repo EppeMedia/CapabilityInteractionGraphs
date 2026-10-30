@@ -1,0 +1,376 @@
+@prefix : <http://purl.org/capability-interaction-graph#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.org/capability-interaction-graph#> .
+
+<http://purl.org/capability-interaction-graph#> rdf:type owl:Ontology ;
+                                                 owl:versionIRI <http://purl.org/capability-interaction-graph/1.0.0> ;
+                                                 owl:imports <http://purl.org/nemo/gufo#> ;
+                                                 <http://purl.org/dc/elements/1.1/creator> "Caltais, Georgiana" ,
+                                                                                           "Ntagengerwa, Manzi Aimé" ,
+                                                                                           "Stoelinga, Mariëlle" ;
+                                                 <http://purl.org/dc/elements/1.1/title> "Capability Interaction Graph (CIG) Ontology"@en ;
+                                                 <http://purl.org/dc/terms/bibliographicCitation> "M. A. Ntagengerwa, G. Caltais, M. Stoelinga, \"Ontology-Grounded Capability Interaction Graphs: From Knowledge Graphs to Fault Trees\", University of Twente, The Netherlands."@en ;
+                                                 <http://purl.org/dc/terms/created> "2026-07-03"^^xsd:date ;
+                                                 <http://purl.org/vocab/vann/preferredNamespacePrefix> "cig"@en ;
+                                                 <http://purl.org/vocab/vann/preferredNamespaceUri> "http://purl.org/capability-interaction-graph#"^^xsd:anyURI ;
+                                                 rdfs:comment """An ontology-driven representation of Cyber-Physical System (CPS) architectures, capturing components, capabilities, channels, interfaces, faults, errors and the functional dependencies that govern fault propagation between them.
+
+This ontology implements the Capability Interaction Graph (CIG) conceptual model of Fig. 5 in the source paper. It is a lightweight extension of gUFO (the Unified Foundational Ontology's OWL 2 DL implementation): components and channels specialize gufo:Object, capabilities and faults specialize gufo:IntrinsicMode (dispositions), functions/errors/fault-creation events specialize gufo:Event, and interfaces specialize gufo:Relator.
+
+CIGs are intended to be queried from system-architecture knowledge graphs via SPARQL and transformed into Fault Trees for Fault Tree Analysis (FTA). This file captures only the static ontological vocabulary (the classes and relations of Fig. 5); the paper's dynamic/temporal semantics (situations, events, error propagation, the CIG-to-Fault-Tree transformation) are given a formal, non-OWL treatment in the paper itself and are not encoded here.
+
+Turtle is used as the exchange syntax, matching gUFO's own primary distribution format and the SPARQL/GraphDB tooling described in the source paper.""" ;
+                                                 rdfs:seeAlso <http://purl.org/nemo/gufo> ;
+                                                 owl:versionInfo "1.0.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/capability-interaction-graph#accommodates
+:accommodates rdf:type owl:ObjectProperty ;
+              rdfs:domain :Channel ;
+              rdfs:range :ResourceType ;
+              rdfs:comment "Identifies a resource type that a Channel is able to transport. A channel can only produce/consume resource types it accommodates (Section III.B, Definition 6)."@en ;
+              rdfs:label "accommodates"@en .
+
+
+###  http://purl.org/capability-interaction-graph#channel
+:channel rdf:type owl:ObjectProperty ;
+         rdfs:domain :Interface ;
+         rdfs:range :Channel ;
+         rdfs:comment "Identifies the Channel aggregated by an Interface (Section III.B, Definitions 7-8; Table VI of the source paper)."@en ;
+         rdfs:label "channel"@en .
+
+
+###  http://purl.org/capability-interaction-graph#channel_capabilities
+:channel_capabilities rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Interface ;
+                      rdfs:range :Capability ;
+                      rdfs:comment "Identifies the unique channel-side (transport) capability aggregated by an Interface: the channel's consumption capability for an InputInterface, or its production capability for an OutputInterface (Section III.B, Definitions 7-8)."@en ;
+                      rdfs:label "channel capabilities"@en .
+
+
+###  http://purl.org/capability-interaction-graph#component
+:component rdf:type owl:ObjectProperty ;
+           rdfs:domain :Interface ;
+           rdfs:range :Component ;
+           rdfs:comment "Identifies the Component aggregated by an Interface (Section III.B, Definitions 7-8; Table VI of the source paper)."@en ;
+           rdfs:label "component"@en .
+
+
+###  http://purl.org/capability-interaction-graph#component_capabilities
+:component_capabilities rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Interface ;
+                        rdfs:range :Capability ;
+                        rdfs:comment "Identifies the component-side capabilities aggregated by an Interface, i.e. the capabilities of the producing/consuming Component that the interface mediates (Section III.B, Definitions 7-8)."@en ;
+                        rdfs:label "component capabilities"@en .
+
+
+###  http://purl.org/capability-interaction-graph#consumes
+:consumes rdf:type owl:ObjectProperty ;
+          rdfs:domain :Capability ;
+          rdfs:range :ResourceType ;
+          rdfs:comment "Identifies a resource type required as a prerequisite for the manifestation of a Capability as a Function (Section III.B, Definition 2, Equation 8)."@en ;
+          rdfs:label "consumes"@en .
+
+
+###  http://purl.org/capability-interaction-graph#has
+:has rdf:type owl:ObjectProperty ;
+     owl:inverseOf <http://purl.org/nemo/gufo#inheresIn> ;
+     rdfs:domain [ rdf:type owl:Class ;
+                   owl:unionOf ( :Channel
+                                 :Component
+                               )
+                 ] ;
+     rdfs:range [ rdf:type owl:Class ;
+                  owl:unionOf ( :Capability
+                                :Fault
+                              )
+                ] ;
+     rdfs:comment "Identifies a Capability or Fault borne by a Component or Channel. Declared as the inverse of gufo:inheresIn, mirroring the inference rule of Eq. (1) in the source paper: has(alpha, f) iff inheresIn(f, alpha)."@en ;
+     rdfs:label "has"@en .
+
+
+###  http://purl.org/capability-interaction-graph#prevents
+:prevents rdf:type owl:ObjectProperty ;
+          rdfs:domain :Fault ;
+          rdfs:range :Capability ;
+          rdfs:comment "Identifies a Capability whose manifestation is prevented when the Fault is active. A Fault may only prevent capabilities inhering in the same bearer (Section III.B, Definition 4)."@en ;
+          rdfs:label "prevents"@en .
+
+
+###  http://purl.org/capability-interaction-graph#produces
+:produces rdf:type owl:ObjectProperty ;
+          rdfs:domain :Capability ;
+          rdfs:range :ResourceType ;
+          rdfs:comment "Identifies a resource type that is output when a Capability is manifested as a Function (Section III.B, Definition 2, Equation 8)."@en ;
+          rdfs:label "produces"@en .
+
+
+###  http://purl.org/capability-interaction-graph#providedBy
+:providedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Consumer ;
+            rdfs:range :Channel .
+
+
+###  http://purl.org/capability-interaction-graph#provides
+:provides rdf:type owl:ObjectProperty ;
+          rdfs:domain :Producer ;
+          rdfs:range :Channel .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/capability-interaction-graph#Capability
+:Capability rdf:type owl:Class ;
+            rdfs:subClassOf <http://purl.org/nemo/gufo#IntrinsicMode> ;
+            owl:disjointWith :Fault ;
+            owl:disjointUnionOf ( :ErroneousCapability
+                                  :FunctionalCapability
+                                ) .
+
+
+###  http://purl.org/capability-interaction-graph#Channel
+:Channel rdf:type owl:Class ;
+         rdfs:subClassOf <http://purl.org/nemo/gufo#Object> .
+
+
+###  http://purl.org/capability-interaction-graph#Component
+:Component rdf:type owl:Class ;
+           rdfs:subClassOf <http://purl.org/nemo/gufo#Object> .
+
+
+###  http://purl.org/capability-interaction-graph#Consumer
+:Consumer rdf:type owl:Class ;
+          rdfs:subClassOf :Component .
+
+
+###  http://purl.org/capability-interaction-graph#ErroneousCapability
+:ErroneousCapability rdf:type owl:Class ;
+                     rdfs:subClassOf :Capability .
+
+
+###  http://purl.org/capability-interaction-graph#Error
+:Error rdf:type owl:Class ;
+       rdfs:subClassOf <http://purl.org/nemo/gufo#Event> ;
+       rdfs:comment "The event spanning the period during which a Capability is in its erroneous phase, triggered when an expectation on that capability's manifestation is unmet. Ends once the expectation no longer holds or the capability manifests again. Corresponds to the <<event>> Error class of Fig. 5 (Section VI, Definition 18)."@en ;
+       rdfs:label "Error"@en .
+
+
+###  http://purl.org/capability-interaction-graph#Fault
+:Fault rdf:type owl:Class ;
+       rdfs:subClassOf <http://purl.org/nemo/gufo#IntrinsicMode> .
+
+
+###  http://purl.org/capability-interaction-graph#FaultCreation
+:FaultCreation rdf:type owl:Class ;
+               rdfs:subClassOf <http://purl.org/nemo/gufo#Event> ;
+               rdfs:comment "The spontaneous event in which one or more Faults come to inhere in a Component or Channel, e.g. a power-supply unit's internal winding burning out. Related to the created Fault via gufo:wasCreatedIn. Corresponds to the <<event>> FaultCreation class of Fig. 5 (Section VI, Definition 17)."@en ;
+               rdfs:label "Fault Creation"@en .
+
+
+###  http://purl.org/capability-interaction-graph#Function
+:Function rdf:type owl:Class ;
+          rdfs:subClassOf <http://purl.org/nemo/gufo#Event> ;
+          rdfs:comment "The manifestation of a Capability as an event, e.g. the ongoing provision of electricity by a power-supply unit. Related to the manifested Capability via gufo:manifestedIn, and to the participating Component or Channel via gufo:participatedIn. Corresponds to the <<event>> Function class of Fig. 5 (Section III.B, Definition 3)."@en ;
+          rdfs:label "Function"@en .
+
+
+###  http://purl.org/capability-interaction-graph#FunctionalCapability
+:FunctionalCapability rdf:type owl:Class ;
+                      rdfs:subClassOf :Capability .
+
+
+###  http://purl.org/capability-interaction-graph#InputInterface
+:InputInterface rdf:type owl:Class ;
+                rdfs:subClassOf :Interface .
+
+
+###  http://purl.org/capability-interaction-graph#Interface
+:Interface rdf:type owl:Class ;
+           rdfs:subClassOf <http://purl.org/nemo/gufo#Relator> ;
+           owl:disjointUnionOf ( :InputInterface
+                                 :OutputInterface
+                               ) .
+
+
+###  http://purl.org/capability-interaction-graph#OutputInterface
+:OutputInterface rdf:type owl:Class ;
+                 rdfs:subClassOf :Interface .
+
+
+###  http://purl.org/capability-interaction-graph#Producer
+:Producer rdf:type owl:Class ;
+          rdfs:subClassOf :Component .
+
+
+###  http://purl.org/capability-interaction-graph#ResourceType
+:ResourceType rdf:type owl:Class ;
+              rdfs:subClassOf <http://purl.org/nemo/gufo#Type> ;
+              rdfs:comment "A higher-order type generalising a form of energy, material, fluid, or signal exchanged between capabilities, e.g. Ink or Electricity. Following Definition 1 of the source paper, instances of cig:ResourceType are themselves types rather than individuals, so it is modelled here as a subclass of gufo:Type: e.g. an application ontology would declare :Ink rdf:type owl:Class, cig:ResourceType, using OWL 2 punning to also give :Ink an appropriate endurant superclass such as gufo:Quantity. Depicted as a <<mixin>> in Fig. 5; a plain gufo:Mixin meta-type was deliberately not asserted here, since gufo:Mixin's instances are endurants, not types."@en ;
+              rdfs:label "Resource Type"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/capability-interaction-graph#Capability
+:Capability rdf:type owl:NamedIndividual ,
+                     <http://purl.org/nemo/gufo#Category> .
+
+
+###  http://purl.org/capability-interaction-graph#Channel
+:Channel rdf:type owl:NamedIndividual ,
+                  <http://purl.org/nemo/gufo#RoleMixin> .
+
+
+###  http://purl.org/capability-interaction-graph#Component
+:Component rdf:type owl:NamedIndividual ,
+                    <http://purl.org/nemo/gufo#Mixin> .
+
+
+###  http://purl.org/capability-interaction-graph#Consumer
+:Consumer rdf:type owl:NamedIndividual ,
+                   <http://purl.org/nemo/gufo#Role> .
+
+
+###  http://purl.org/capability-interaction-graph#ErroneousCapability
+:ErroneousCapability rdf:type owl:NamedIndividual ,
+                              <http://purl.org/nemo/gufo#PhaseMixin> .
+
+
+###  http://purl.org/capability-interaction-graph#Fault
+:Fault rdf:type owl:NamedIndividual ,
+                <http://purl.org/nemo/gufo#Category> .
+
+
+###  http://purl.org/capability-interaction-graph#FunctionalCapability
+:FunctionalCapability rdf:type owl:NamedIndividual ,
+                               <http://purl.org/nemo/gufo#PhaseMixin> .
+
+
+###  http://purl.org/capability-interaction-graph#InputInterface
+:InputInterface rdf:type owl:NamedIndividual ,
+                         <http://purl.org/nemo/gufo#SubKind> .
+
+
+###  http://purl.org/capability-interaction-graph#Interface
+:Interface rdf:type owl:NamedIndividual ,
+                    <http://purl.org/nemo/gufo#Kind> .
+
+
+###  http://purl.org/capability-interaction-graph#OutputInterface
+:OutputInterface rdf:type owl:NamedIndividual ,
+                          <http://purl.org/nemo/gufo#SubKind> .
+
+
+###  http://purl.org/capability-interaction-graph#Producer
+:Producer rdf:type owl:NamedIndividual ,
+                   <http://purl.org/nemo/gufo#Role> .
+
+
+###  http://purl.org/capability-interaction-graph#providedBy
+:providedBy rdf:type owl:NamedIndividual ,
+                     <http://purl.org/nemo/gufo#MaterialRelationshipType> ;
+            <http://purl.org/nemo/gufo#isDerivedFrom> :InputInterface .
+
+
+###  http://purl.org/capability-interaction-graph#provides
+:provides rdf:type owl:NamedIndividual ,
+                   <http://purl.org/nemo/gufo#MaterialRelationshipType> ;
+          <http://purl.org/nemo/gufo#isDerivedFrom> :OutputInterface .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Capability rdfs:comment "A disposition (gufo:IntrinsicMode) inhering in exactly one Component or Channel, describing a possible behaviour of its bearer, e.g. 'provide electricity' or 'deposit ink'. A capability may be manifested as a Function via gufo:manifestedIn, and is, at any time, in exactly one of its FunctionalCapability or ErroneousCapability phases. Corresponds to the <<category>><<mode>> Capability class of Fig. 5 (Section III.B, Definition 2)."@en ;
+            rdfs:label "Capability"@en .
+
+
+:Channel rdfs:comment "The role played by an object that transports a resource type between a Producer and a Consumer, e.g. a wire or a tube. A Channel bears its own pair of transport capabilities (consumption and production) for each resource type it accommodates. An object playing the Component role may simultaneously play the Channel role. Corresponds to the <<roleMixin>> Channel class of Fig. 5 (Section III.B, Definition 6)."@en ;
+         rdfs:label "Channel"@en .
+
+
+:Component rdfs:comment "A physical entity bearing one or more capabilities, e.g. a power-supply unit, an ink reservoir, or a print head. Components are treated as mereologically atomic: this ontology makes no commitment to their internal parthood structure. Corresponds to the <<mixin>> Component class of Fig. 5 (Section III.B, Definition 5)."@en ;
+           rdfs:label "Component"@en .
+
+
+:Consumer rdfs:comment "The role played by a Component when one of its capabilities is provided a resource type by a Channel, giving rise to the cig:providedBy material relation. Corresponds to the <<role>> Consumer class of Fig. 5 (Section III.B, 'The Component type')."@en ;
+          rdfs:label "Consumer"@en .
+
+
+:ErroneousCapability rdfs:comment "The phase of a Capability during the existence of an Error over it. Covering and disjoint with FunctionalCapability. Corresponds to the <<phaseMixin>> Erroneous Capability class of Fig. 5 (Section III.B)."@en ;
+                     rdfs:label "Erroneous Capability"@en .
+
+
+:Fault rdfs:comment "A disposition (gufo:IntrinsicMode) inhering in exactly one Component or Channel that, once activated, prevents the manifestation of one or more of that object's capabilities via cig:prevents. Corresponds to the <<category>><<mode>> Fault class of Fig. 5 (Section III.B, Definition 4)."@en ;
+       rdfs:label "Fault"@en .
+
+
+:FunctionalCapability rdfs:comment "The phase of a Capability outside the existence of an Error over it. Covering and disjoint with ErroneousCapability. Corresponds to the <<phaseMixin>> Functional Capability class of Fig. 5 (Section III.B)."@en ;
+                      rdfs:label "Functional Capability"@en .
+
+
+:InputInterface rdfs:comment "An Interface relating a Channel, the Component consuming from it, and the resource type exchanged, giving rise to the cig:providedBy material relation between the consuming Component and the Channel. Corresponds to the <<subkind>> InputInterface class of Fig. 5 (Section III.B, Definition 8)."@en ;
+                rdfs:label "Input Interface"@en .
+
+
+:Interface rdfs:comment "A relator (gufo:Relator) mediating a resource exchange between a Component and a Channel through a particular resource type. Every Interface is either an InputInterface or an OutputInterface. Corresponds to the <<relator>> Interface class of Fig. 5 (Section III.B)."@en ;
+           rdfs:label "Interface"@en .
+
+
+:OutputInterface rdfs:comment "An Interface relating a Channel, the Component producing for it, and the resource type exchanged, giving rise to the cig:provides material relation between the producing Component and the Channel. Corresponds to the <<subkind>> OutputInterface class of Fig. 5 (Section III.B, Definition 7)."@en ;
+                 rdfs:label "Output Interface"@en .
+
+
+:Producer rdfs:comment "The role played by a Component when one of its capabilities provides a resource type to a Channel, giving rise to the cig:provides material relation. Corresponds to the <<role>> Producer class of Fig. 5 (Section III.B, 'The Component type')."@en ;
+          rdfs:label "Producer"@en .
+
+
+:providedBy rdfs:comment "The material relation borne by a Component playing the Consumer role towards the Channel that provides it with a resource, derived from the underlying InputInterface relator (Section III.B, 'Interfaces')."@en ;
+            rdfs:label "providedBy"@en .
+
+
+:provides rdfs:comment "The material relation borne by a Component playing the Producer role towards the Channel it supplies with a resource, derived from the underlying OutputInterface relator (Section III.B, 'Interfaces')."@en ;
+          rdfs:label "provides"@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

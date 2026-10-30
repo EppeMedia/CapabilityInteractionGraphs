@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+   
+   <link rel="shortcut icon" type="image/ico" href="/favicon/favicon.ico"/>
+   <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+   <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+   <link rel="shortcut icon" type="image/png" sizes="180x180" href="/favicon/apple-touch-icon.png">
+   <link rel="shortcut icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+   <link rel="shortcut icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png">
+
+   <link rel="stylesheet" href="resources/primer.css" media="screen"/>
+   <link rel="stylesheet" href="resources/rec.css" media="screen"/>
+   <link rel="stylesheet" href="resources/extra.css" media="screen"/>
+   <link rel="stylesheet" href="resources/owl.css" media="screen"/>
+   <link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+   <link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+   <link rel="stylesheet" href="resources/slider.css" media="screen"/>
+   <meta name="color-scheme" content="dark light">
+   <script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+      <dark-mode-toggle class="slider"></dark-mode-toggle>
+   </div>
+
+   <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" />
+   <script src="https://unpkg.com/@triply/yasgui/build/yasgui.min.js"></script>
+
+   <title>Capability Interaction Graph (CIG) Ontology</title>
+
+
+   <!-- SCHEMA.ORG METADATA -->
+   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://purl.org/capability-interaction-graph#","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://purl.org/capability-interaction-graph#","name":"Capability Interaction Graph (CIG) Ontology", "headline":"Document describing the ontology http://purl.org/capability-interaction-graph#", "dateReleased":"2026-07-03", "version":"1.0.0", "author":[{"@type":"Person","name":"Ntagengerwa, Manzi Aimé"},{"@type":"Person","name":"Caltais, Georgiana"},{"@type":"Person","name":"Stoelinga, Mariëlle"}]}</script>
+
+   <script src="resources/jquery.js"></script> 
+   <script src="resources/marked.min.js"></script> 
+      <script> 
+   function loadHash() {
+   jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+      var hash = location.hash;
+      if($(hash).offset()!=null){
+      $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+   }
+      loadTOC();
+   }
+   function loadTOC(){
+      //process toc dynamically
+      var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+      jQuery(".list").each(function(){
+         if(jQuery(this).is('h2')){
+            if(j>0){
+               t+='</ul>';
+               j=0;
+            }
+            t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+            i++;
+         }
+         if(jQuery(this).is('h3')){
+            if(j==0){
+               t+='<ul>';
+            }
+            j++;
+            t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+         }
+      });
+      t+='</ul>';
+      $("#toc").html(t); 
+   }
+   $(function(){
+      loadHash();
+   }); $.fn.ignore = function(sel){
+         return this.clone().find(sel||">*").remove().end();
+   }; 
+      </script> 
+</head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Capability Interaction Graph (CIG) Ontology</h1>
+<h2>Release: 2026-07-03</h2>
+
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="http://purl.org/capability-interaction-graph#/1.0.0">http://purl.org/capability-interaction-graph#/1.0.0</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://purl.org/capability-interaction-graph#">http://purl.org/capability-interaction-graph#</a></dd>
+<dt>Revision:</dt>
+<dd>1.0.0</dd>
+<dt>Authors:</dt>
+<dd>Ntagengerwa, Manzi Aimé, University of Twente<a href="mailto:m.a.ntagengerwa@utwente.nl">&#9993;</a></dd><dd>Caltais, Georgiana</dd><dd>Stoelinga, Mariëlle</dd>
+
+<dt>Imported Ontologies:</dt><dd>
+   <a href="http://purl.org/nemo/gufo#">gufo#</a>
+</dd>
+
+<dt>See also:</dt><dd>
+   <a href="http://purl.org/nemo/gufo">http://purl.org/nemo/gufo</a>
+</dd>
+
+<dt>Download serialization:</dt><dd>
+   <span><a href="capability-interaction-graph.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span>
+   <span><a href="capability-interaction-graph.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span>
+   <span><a href="capability-interaction-graph.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span>
+   <span><a href="capability-interaction-graph.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span>
+</dd>
+
+<dt>Visualization:</dt><dd>
+   <a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a>
+   <a href="https://cigar.manzi-it.com" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-CIGAR_Studio-blue.svg" alt="Visualize with CIGAR Studio" /></a>
+</dd>
+
+<dt>Evaluation:</dt><dd>
+   <a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a>
+</dd>
+
+<dt>Validation:</dt><dd>
+   <span><a href="shacl/capability-interaction-graph-shapes.ttl" target="_blank"><img src="https://img.shields.io/badge/Validate_with-SHACL-blue.svg" alt="Validate with SHACL" /></a></span>
+   <span><a href="https://s.zazuko.com/3tGoR4F" target="_blank"><img src="https://img.shields.io/badge/Try_in-SHACL_Playground-blue.svg" alt="Try in SHACL Playground" /></a></span>
+</dd>
+
+<dt>Cite as:</dt><dd>M. A. Ntagengerwa, G. Caltais, M. Stoelinga, "Ontology-Grounded Capability Interaction Graphs: From Knowledge Graphs to Fault Trees", University of Twente, The Netherlands.</dd>
+
+<dt>License:</dt><dd>
+   <a href="https://purl.org/capability-interaction-graph">Capability Interaction Graph</a> © 2026 by <a href="https://orcid.org/0009-0008-4414-1979">Manzi Aimé Ntagengerwa</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+</dd>
+</dl>
+
+<a style="margin-top: 16px" href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>
+
+<div id="abstract"><h2>Abstract</h2>
+   <p>
+      The Capability Interaction Graph (CIG) Ontology is an ontology-driven vocabulary for describing the architecture of Cyber-Physical Systems (CPSs) in terms of components, capabilities, channels, interfaces, faults, and errors, together with the functional dependencies that govern how failures propagate between them. It is a lightweight extension of the Unified Foundational Ontology (UFO), implemented via gUFO, and is intended to be populated from system-architecture knowledge graphs and queried using SPARQL. The ontology forms the static architectural layer of a broader framework — described in the paper this ontology accompanies — for automatically synthesising Fault Trees from Capability Interaction Graphs, reducing the manual effort typically required to build reliability models for CPSs.
+   </p>
+</div>
+
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+   <p>Reliability modelling for Cyber-Physical Systems (CPSs) is a multidisciplinary and largely manual activity. Fault Tree Analysis (FTA) is one of the most established techniques for reasoning about system failures, but constructing a fault tree by hand requires extensive coordination between domain experts and depends heavily on tacit engineering knowledge that is rarely documented in a machine-readable form. As a result, fault trees are expensive to maintain and are often unavailable during the early stages of system design, when architectural changes are still cheap to make.</p>
+
+   <p>The Capability Interaction Graph (CIG) addresses this by providing an intermediate semantic layer between architectural knowledge and reliability analysis. Rather than requiring an analyst to encode failure behaviour by hand, a CIG captures a system's functional dependency structure — which capabilities depend on which others, and through which components, channels, and interfaces — from which failure semantics can be derived automatically. The model is grounded in the Unified Foundational Ontology (UFO), via its lightweight OWL implementation gUFO, which provides the ontology with precise semantics for notions such as dispositions, events, participation, and relators. This grounding is what allows the ontology to explicitly separate distinctions that conventional fault tree formalisms usually conflate, such as faults versus errors, and the creation of a fault versus its activation.</p>
+   
+   <p>This document describes the <em>static</em> architectural vocabulary of the CIG model: <code>Component</code>, <code>Channel</code>, <code>Capability</code>, <code>Fault</code>, <code>Interface</code> (and its <code>InputInterface</code>/<code>OutputInterface</code> specialisations), <code>ResourceType</code>, and the events (<code>Function</code>, <code>FaultCreation</code>, <code>Error</code>) associated with them. It corresponds to the ontology conforming to which a system-architecture knowledge graph is expected to be structured. The ontology deliberately does not attempt to axiomatise the dynamic, situation-based semantics of the underlying framework — fault activation, error propagation, and the synthesis of a fault tree from a CIG — since these describe how a system evolves across situations over time rather than constraints on a single knowledge graph; that part of the framework is instead given a formal treatment directly in the source paper.</p>
+   
+   <p>As a running example, consider a subsystem of a production printer consisting of a power-supply unit, an ink reservoir, and a print head. The power-supply unit has the capability to provide electricity, the ink reservoir the capability to provide ink, and the print head the capabilities to deposit ink and to self-clean; electricity and ink reach the print head through a wire and a tube respectively, each modelled as a <code>Channel</code>. This example is used throughout the accompanying documentation, and a companion SHACL shapes file is available (see the Description section) for validating that a knowledge graph built along these lines respects the ontology's structural constraints.</p>
+</span>
+
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>cig</b></td><td>&lt;http://purl.org/capability-interaction-graph#&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1/&gt;</td></tr>
+<tr><td><b>dct</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>gufo</b></td><td>&lt;http://purl.org/nemo/gufo#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Capability Interaction Graph (CIG) Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Capability"
+         title="http://purl.org/capability-interaction-graph#Capability">
+         <span>Capability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Channel"
+         title="http://purl.org/capability-interaction-graph#Channel">
+         <span>Channel</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Component"
+         title="http://purl.org/capability-interaction-graph#Component">
+         <span>Component</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Consumer"
+         title="http://purl.org/capability-interaction-graph#Consumer">
+         <span>Consumer</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ErroneousCapability"
+         title="http://purl.org/capability-interaction-graph#ErroneousCapability">
+         <span>Erroneous Capability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Error"
+         title="http://purl.org/capability-interaction-graph#Error">Error</a>
+   </li>
+   <li>
+      <a href="#Fault"
+         title="http://purl.org/capability-interaction-graph#Fault">
+         <span>Fault</span>
+      </a>
+   </li>
+   <li>
+      <a href="#FaultCreation"
+         title="http://purl.org/capability-interaction-graph#FaultCreation">Fault Creation</a>
+   </li>
+   <li>
+      <a href="#Function"
+         title="http://purl.org/capability-interaction-graph#Function">Function</a>
+   </li>
+   <li>
+      <a href="#FunctionalCapability"
+         title="http://purl.org/capability-interaction-graph#FunctionalCapability">
+         <span>Functional Capability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#InputInterface"
+         title="http://purl.org/capability-interaction-graph#InputInterface">
+         <span>Input Interface</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Interface"
+         title="http://purl.org/capability-interaction-graph#Interface">
+         <span>Interface</span>
+      </a>
+   </li>
+   <li>
+      <a href="#OutputInterface"
+         title="http://purl.org/capability-interaction-graph#OutputInterface">
+         <span>Output Interface</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Producer"
+         title="http://purl.org/capability-interaction-graph#Producer">
+         <span>Producer</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ResourceType"
+         title="http://purl.org/capability-interaction-graph#ResourceType">Resource Type</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#accommodates"
+         title="http://purl.org/capability-interaction-graph#accommodates">accommodates</a>
+   </li>
+   <li>
+      <a href="#channel"
+         title="http://purl.org/capability-interaction-graph#channel">channel</a>
+   </li>
+   <li>
+      <a href="#channel_capabilities"
+         title="http://purl.org/capability-interaction-graph#channel_capabilities">channel capabilities</a>
+   </li>
+   <li>
+      <a href="#component"
+         title="http://purl.org/capability-interaction-graph#component">component</a>
+   </li>
+   <li>
+      <a href="#component_capabilities"
+         title="http://purl.org/capability-interaction-graph#component_capabilities">component capabilities</a>
+   </li>
+   <li>
+      <a href="#consumes"
+         title="http://purl.org/capability-interaction-graph#consumes">consumes</a>
+   </li>
+   <li>
+      <a href="#has" title="http://purl.org/capability-interaction-graph#has">has</a>
+   </li>
+   <li>
+      <a href="#prevents"
+         title="http://purl.org/capability-interaction-graph#prevents">prevents</a>
+   </li>
+   <li>
+      <a href="#produces"
+         title="http://purl.org/capability-interaction-graph#produces">produces</a>
+   </li>
+   <li>
+      <a href="#providedBy"
+         title="http://purl.org/capability-interaction-graph#providedBy">
+         <span>providedBy</span>
+      </a>
+   </li>
+   <li>
+      <a href="#provides"
+         title="http://purl.org/capability-interaction-graph#provides">
+         <span>provides</span>
+      </a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/bibliographicCitation" title="http://purl.org/dc/terms/bibliographicCitation">
+         <span>bibliographic Citation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created">
+         <span>created</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator">
+         <span>creator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespacePrefix"
+         title="http://purl.org/vocab/vann/preferredNamespacePrefix">
+         <span>preferred Namespace Prefix</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri">
+         <span>preferred Namespace Uri</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/elements/1.1/title" title="http://purl.org/dc/elements/1.1/title">
+         <span>title</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Capability"
+         title="http://purl.org/capability-interaction-graph#Capability">
+         <span>Capability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Channel"
+         title="http://purl.org/capability-interaction-graph#Channel">
+         <span>Channel</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Component"
+         title="http://purl.org/capability-interaction-graph#Component">
+         <span>Component</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Consumer"
+         title="http://purl.org/capability-interaction-graph#Consumer">
+         <span>Consumer</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ErroneousCapability"
+         title="http://purl.org/capability-interaction-graph#ErroneousCapability">
+         <span>Erroneous Capability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Fault"
+         title="http://purl.org/capability-interaction-graph#Fault">
+         <span>Fault</span>
+      </a>
+   </li>
+   <li>
+      <a href="#FunctionalCapability"
+         title="http://purl.org/capability-interaction-graph#FunctionalCapability">
+         <span>Functional Capability</span>
+      </a>
+   </li>
+   <li>
+      <a href="#InputInterface"
+         title="http://purl.org/capability-interaction-graph#InputInterface">
+         <span>Input Interface</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Interface"
+         title="http://purl.org/capability-interaction-graph#Interface">
+         <span>Interface</span>
+      </a>
+   </li>
+   <li>
+      <a href="#OutputInterface"
+         title="http://purl.org/capability-interaction-graph#OutputInterface">
+         <span>Output Interface</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Producer"
+         title="http://purl.org/capability-interaction-graph#Producer">
+         <span>Producer</span>
+      </a>
+   </li>
+   <li>
+      <a href="#providedBy"
+         title="http://purl.org/capability-interaction-graph#providedBy">
+         <span>providedBy</span>
+      </a>
+   </li>
+   <li>
+      <a href="#provides"
+         title="http://purl.org/capability-interaction-graph#provides">
+         <span>provides</span>
+      </a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+
+
+<div id="Example">
+   <h2 id="crossreference" class="list">Example</h2>
+
+   <div id="comunica-demo">
+      <p>Try a SPARQL query against an example CIG instance graph (the <a href="https://en.wikipedia.org/wiki/Lycoming_O-320">Lycoming O320</a> ignition system):</p>
+
+      <div id="yasqe"></div>
+    </div>
+
+    <script>
+      const DEFAULT_QUERY = `PREFIX cig: <http://purl.org/capability-interaction-graph#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?bearer ?capability ?consumes ?produces WHERE {
+  ?capability gufo:inheresIn ?bearer .
+  OPTIONAL { ?capability cig:consumes ?consumes }
+  OPTIONAL { ?capability cig:produces ?produces }
+}
+ORDER BY ?bearer`;
+
+      const yasgui = new Yasgui(document.getElementById("yasqe"), {
+        // Otherwise YASQE calls .focus() on init, which makes the browser
+        // auto-scroll the page down to this element.
+        autofocus: false,
+        requestConfig: {
+          endpoint: "https://sparql.manzi-it.com/demo/sparql"
+        }
+      });
+
+      yasgui.getTab().setQuery(DEFAULT_QUERY);
+    </script>
+
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Capability Interaction Graph (CIG) Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">An ontology-driven representation of Cyber-Physical System (CPS) architectures, capturing components, capabilities, channels, interfaces, faults, errors and the functional dependencies that govern fault propagation between them.
+
+This ontology implements the Capability Interaction Graph (CIG) conceptual model of Fig. 5 in the source paper. It is a lightweight extension of gUFO (the Unified Foundational Ontology's OWL 2 DL implementation): components and channels specialize gufo:Object, capabilities and faults specialize gufo:IntrinsicMode (dispositions), functions/errors/fault-creation events specialize gufo:Event, and interfaces specialize gufo:Relator.
+
+CIGs are intended to be queried from system-architecture knowledge graphs via SPARQL and transformed into Fault Trees for Fault Tree Analysis (FTA). This file captures only the static ontological vocabulary (the classes and relations of Fig. 5); the paper's dynamic/temporal semantics (situations, events, error propagation, the CIG-to-Fault-Tree transformation) are given a formal, non-OWL treatment in the paper itself and are not encoded here.
+
+Turtle is used as the exchange syntax, matching gUFO's own primary distribution format and the SPARQL/GraphDB tooling described in the source paper.</span></div>
+   
+<p>A companion <a href="shacl/capability-interaction-graph-shapes.ttl">SHACL shapes file</a> is available for validating instance data against this ontology's structural constraints, including cross-referential constraints (e.g. that a Fault and the Capability it prevents share a bearer) that go beyond what OWL 2 DL can express.</p>
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Capability Interaction Graph (CIG) Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Capability Interaction Graph (CIG) Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability"> <span>Capability</span> </a></li>
+  <li><a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel"> <span>Channel</span> </a></li>
+  <li><a href="#Component" title="http://purl.org/capability-interaction-graph#Component"> <span>Component</span> </a></li>
+  <li><a href="#Consumer" title="http://purl.org/capability-interaction-graph#Consumer"> <span>Consumer</span> </a></li>
+  <li><a href="#ErroneousCapability" title="http://purl.org/capability-interaction-graph#ErroneousCapability"> <span>Erroneous Capability</span> </a></li>
+  <li><a href="#Error" title="http://purl.org/capability-interaction-graph#Error">Error</a></li>
+  <li><a href="#Fault" title="http://purl.org/capability-interaction-graph#Fault"> <span>Fault</span> </a></li>
+  <li><a href="#FaultCreation" title="http://purl.org/capability-interaction-graph#FaultCreation">Fault Creation</a></li>
+  <li><a href="#Function" title="http://purl.org/capability-interaction-graph#Function">Function</a></li>
+  <li><a href="#FunctionalCapability" title="http://purl.org/capability-interaction-graph#FunctionalCapability"> <span>Functional Capability</span> </a></li>
+  <li><a href="#InputInterface" title="http://purl.org/capability-interaction-graph#InputInterface"> <span>Input Interface</span> </a></li>
+  <li><a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface"> <span>Interface</span> </a></li>
+  <li><a href="#OutputInterface" title="http://purl.org/capability-interaction-graph#OutputInterface"> <span>Output Interface</span> </a></li>
+  <li><a href="#Producer" title="http://purl.org/capability-interaction-graph#Producer"> <span>Producer</span> </a></li>
+  <li><a href="#ResourceType" title="http://purl.org/capability-interaction-graph#ResourceType">Resource Type</a></li>
+ </ul>
+ <div class="entity" id="Capability">
+  <h3>Capability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Capability</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#IntrinsicMode" target="_blank" title="http://purl.org/nemo/gufo#IntrinsicMode">IntrinsicMode</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ErroneousCapability" title="http://purl.org/capability-interaction-graph#ErroneousCapability">Erroneous Capability</a> <sup class="type-c" title="class">c</sup>, <a href="#FunctionalCapability" title="http://purl.org/capability-interaction-graph#FunctionalCapability">Functional Capability</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#consumes" title="http://purl.org/capability-interaction-graph#consumes">consumes</a> <sup class="type-op" title="object property">op</sup>, <a href="#produces" title="http://purl.org/capability-interaction-graph#produces">produces</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#channel_capabilities" title="http://purl.org/capability-interaction-graph#channel_capabilities">channel capabilities</a> <sup class="type-op" title="object property">op</sup>, <a href="#component_capabilities" title="http://purl.org/capability-interaction-graph#component_capabilities">component capabilities</a> <sup class="type-op" title="object property">op</sup>, <a href="#has" title="http://purl.org/capability-interaction-graph#has">has</a> <sup class="type-op" title="object property">op</sup>, <a href="#prevents" title="http://purl.org/capability-interaction-graph#prevents">prevents</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Fault" title="http://purl.org/capability-interaction-graph#Fault">Fault</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Capability">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Channel">
+  <h3>Channel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Channel</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Object" target="_blank" title="http://purl.org/nemo/gufo#Object">Object</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#accommodates" title="http://purl.org/capability-interaction-graph#accommodates">accommodates</a> <sup class="type-op" title="object property">op</sup>, <a href="#has" title="http://purl.org/capability-interaction-graph#has">has</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#channel" title="http://purl.org/capability-interaction-graph#channel">channel</a> <sup class="type-op" title="object property">op</sup>, <a href="#providedBy" title="http://purl.org/capability-interaction-graph#providedBy">providedBy</a> <sup class="type-op" title="object property">op</sup>, <a href="#provides" title="http://purl.org/capability-interaction-graph#provides">provides</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Channel">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Component">
+  <h3>Component<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Component</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Object" target="_blank" title="http://purl.org/nemo/gufo#Object">Object</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Consumer" title="http://purl.org/capability-interaction-graph#Consumer">Consumer</a> <sup class="type-c" title="class">c</sup>, <a href="#Producer" title="http://purl.org/capability-interaction-graph#Producer">Producer</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#has" title="http://purl.org/capability-interaction-graph#has">has</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#component" title="http://purl.org/capability-interaction-graph#component">component</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Component">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Consumer">
+  <h3>Consumer<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Consumer</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Component" title="http://purl.org/capability-interaction-graph#Component">Component</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#providedBy" title="http://purl.org/capability-interaction-graph#providedBy">providedBy</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Consumer">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ErroneousCapability">
+  <h3>Erroneous Capability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#ErroneousCapability</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#ErroneousCapability">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Error">
+  <h3>Error<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Error</p>
+  <div class="comment">
+   <span class="markdown">The event spanning the period during which a Capability is in its erroneous phase, triggered when an expectation on that capability's manifestation is unmet. Ends once the expectation no longer holds or the capability manifests again. Corresponds to the &lt;&lt;event&gt;&gt; Error class of Fig. 5 (Section VI, Definition 18).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Event" target="_blank" title="http://purl.org/nemo/gufo#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Fault">
+  <h3>Fault<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Fault</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#IntrinsicMode" target="_blank" title="http://purl.org/nemo/gufo#IntrinsicMode">IntrinsicMode</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#prevents" title="http://purl.org/capability-interaction-graph#prevents">prevents</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#has" title="http://purl.org/capability-interaction-graph#has">has</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Fault">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FaultCreation">
+  <h3>Fault Creation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#FaultCreation</p>
+  <div class="comment">
+   <span class="markdown">The spontaneous event in which one or more Faults come to inhere in a Component or Channel, e.g. a power-supply unit's internal winding burning out. Related to the created Fault via gufo:wasCreatedIn. Corresponds to the &lt;&lt;event&gt;&gt; FaultCreation class of Fig. 5 (Section VI, Definition 17).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Event" target="_blank" title="http://purl.org/nemo/gufo#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Function">
+  <h3>Function<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Function</p>
+  <div class="comment">
+   <span class="markdown">The manifestation of a Capability as an event, e.g. the ongoing provision of electricity by a power-supply unit. Related to the manifested Capability via gufo:manifestedIn, and to the participating Component or Channel via gufo:participatedIn. Corresponds to the &lt;&lt;event&gt;&gt; Function class of Fig. 5 (Section III.B, Definition 3).</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Event" target="_blank" title="http://purl.org/nemo/gufo#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FunctionalCapability">
+  <h3>Functional Capability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#FunctionalCapability</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#FunctionalCapability">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InputInterface">
+  <h3>Input Interface<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#InputInterface</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface">Interface</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#InputInterface">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Interface">
+  <h3>Interface<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Interface</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Relator" target="_blank" title="http://purl.org/nemo/gufo#Relator">Relator</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#InputInterface" title="http://purl.org/capability-interaction-graph#InputInterface">Input Interface</a> <sup class="type-c" title="class">c</sup>, <a href="#OutputInterface" title="http://purl.org/capability-interaction-graph#OutputInterface">Output Interface</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#channel" title="http://purl.org/capability-interaction-graph#channel">channel</a> <sup class="type-op" title="object property">op</sup>, <a href="#channel_capabilities" title="http://purl.org/capability-interaction-graph#channel_capabilities">channel capabilities</a> <sup class="type-op" title="object property">op</sup>, <a href="#component" title="http://purl.org/capability-interaction-graph#component">component</a> <sup class="type-op" title="object property">op</sup>, <a href="#component_capabilities" title="http://purl.org/capability-interaction-graph#component_capabilities">component capabilities</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Interface">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="OutputInterface">
+  <h3>Output Interface<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#OutputInterface</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface">Interface</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#OutputInterface">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Producer">
+  <h3>Producer<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Producer</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Component" title="http://purl.org/capability-interaction-graph#Component">Component</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#provides" title="http://purl.org/capability-interaction-graph#provides">provides</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Producer">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ResourceType">
+  <h3>Resource Type<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#ResourceType</p>
+  <div class="comment">
+   <span class="markdown">A higher-order type generalising a form of energy, material, fluid, or signal exchanged between capabilities, e.g. Ink or Electricity. Following Definition 1 of the source paper, instances of cig:ResourceType are themselves types rather than individuals, so it is modelled here as a subclass of gufo:Type: e.g. an application ontology would declare :Ink rdf:type owl:Class, cig:ResourceType, using OWL 2 punning to also give :Ink an appropriate endurant superclass such as gufo:Quantity. Depicted as a &lt;&lt;mixin&gt;&gt; in Fig. 5; a plain gufo:Mixin meta-type was deliberately not asserted here, since gufo:Mixin's instances are endurants, not types.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Type" target="_blank" title="http://purl.org/nemo/gufo#Type">Type</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#accommodates" title="http://purl.org/capability-interaction-graph#accommodates">accommodates</a> <sup class="type-op" title="object property">op</sup>, <a href="#consumes" title="http://purl.org/capability-interaction-graph#consumes">consumes</a> <sup class="type-op" title="object property">op</sup>, <a href="#produces" title="http://purl.org/capability-interaction-graph#produces">produces</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#accommodates" title="http://purl.org/capability-interaction-graph#accommodates">accommodates</a></li>
+  <li><a href="#channel" title="http://purl.org/capability-interaction-graph#channel">channel</a></li>
+  <li><a href="#channel_capabilities" title="http://purl.org/capability-interaction-graph#channel_capabilities">channel capabilities</a></li>
+  <li><a href="#component" title="http://purl.org/capability-interaction-graph#component">component</a></li>
+  <li><a href="#component_capabilities" title="http://purl.org/capability-interaction-graph#component_capabilities">component capabilities</a></li>
+  <li><a href="#consumes" title="http://purl.org/capability-interaction-graph#consumes">consumes</a></li>
+  <li><a href="#has" title="http://purl.org/capability-interaction-graph#has">has</a></li>
+  <li><a href="#prevents" title="http://purl.org/capability-interaction-graph#prevents">prevents</a></li>
+  <li><a href="#produces" title="http://purl.org/capability-interaction-graph#produces">produces</a></li>
+  <li><a href="#providedBy" title="http://purl.org/capability-interaction-graph#providedBy"> <span>providedBy</span> </a></li>
+  <li><a href="#provides" title="http://purl.org/capability-interaction-graph#provides"> <span>provides</span> </a></li>
+ </ul>
+ <div class="entity" id="accommodates">
+  <h3>accommodates<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#accommodates</p>
+  <div class="comment">
+   <span class="markdown">Identifies a resource type that a Channel is able to transport. A channel can only produce/consume resource types it accommodates (Section III.B, Definition 6).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel">Channel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ResourceType" title="http://purl.org/capability-interaction-graph#ResourceType">Resource Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="channel">
+  <h3>channel<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#channel</p>
+  <div class="comment">
+   <span class="markdown">Identifies the Channel aggregated by an Interface (Section III.B, Definitions 7-8; Table VI of the source paper).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface">Interface</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel">Channel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="channel_capabilities">
+  <h3>channel capabilities<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#channel_capabilities</p>
+  <div class="comment">
+   <span class="markdown">Identifies the unique channel-side (transport) capability aggregated by an Interface: the channel's consumption capability for an InputInterface, or its production capability for an OutputInterface (Section III.B, Definitions 7-8).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface">Interface</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="component">
+  <h3>component<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#component</p>
+  <div class="comment">
+   <span class="markdown">Identifies the Component aggregated by an Interface (Section III.B, Definitions 7-8; Table VI of the source paper).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface">Interface</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Component" title="http://purl.org/capability-interaction-graph#Component">Component</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="component_capabilities">
+  <h3>component capabilities<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#component_capabilities</p>
+  <div class="comment">
+   <span class="markdown">Identifies the component-side capabilities aggregated by an Interface, i.e. the capabilities of the producing/consuming Component that the interface mediates (Section III.B, Definitions 7-8).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface">Interface</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="consumes">
+  <h3>consumes<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#consumes</p>
+  <div class="comment">
+   <span class="markdown">Identifies a resource type required as a prerequisite for the manifestation of a Capability as a Function (Section III.B, Definition 2, Equation 8).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ResourceType" title="http://purl.org/capability-interaction-graph#ResourceType">Resource Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="has">
+  <h3>has<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#has</p>
+  <div class="comment">
+   <span class="markdown">Identifies a Capability or Fault borne by a Component or Channel. Declared as the inverse of gufo:inheresIn, mirroring the inference rule of Eq. (1) in the source paper: has(alpha, f) iff inheresIn(f, alpha).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel">Channel</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Component" title="http://purl.org/capability-interaction-graph#Component">Component</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Fault" title="http://purl.org/capability-interaction-graph#Fault">Fault</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="http://purl.org/nemo/gufo#inheresIn" target="_blank" title="http://purl.org/nemo/gufo#inheresIn">inheresIn</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="prevents">
+  <h3>prevents<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#prevents</p>
+  <div class="comment">
+   <span class="markdown">Identifies a Capability whose manifestation is prevented when the Fault is active. A Fault may only prevent capabilities inhering in the same bearer (Section III.B, Definition 4).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Fault" title="http://purl.org/capability-interaction-graph#Fault">Fault</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="produces">
+  <h3>produces<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#produces</p>
+  <div class="comment">
+   <span class="markdown">Identifies a resource type that is output when a Capability is manifested as a Function (Section III.B, Definition 2, Equation 8).</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ResourceType" title="http://purl.org/capability-interaction-graph#ResourceType">Resource Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="providedBy">
+  <h3>providedBy<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#providedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Consumer" title="http://purl.org/capability-interaction-graph#Consumer">Consumer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel">Channel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#providedBy">named individual</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="provides">
+  <h3>provides<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#provides</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Producer" title="http://purl.org/capability-interaction-graph#Producer">Producer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel">Channel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is also defined as
+    </dt>
+    <dd>
+     <a href="#provides">named individual</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://purl.org/dc/terms/bibliographicCitation" title="http://purl.org/dc/terms/bibliographicCitation"> <span>bibliographic Citation</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/created" title="http://purl.org/dc/terms/created"> <span>created</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/creator" title="http://purl.org/dc/elements/1.1/creator"> <span>creator</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespacePrefix" title="http://purl.org/vocab/vann/preferredNamespacePrefix"> <span>preferred Namespace Prefix</span> </a></li>
+  <li><a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri"> <span>preferred Namespace Uri</span> </a></li>
+  <li><a href="#http://purl.org/dc/elements/1.1/title" title="http://purl.org/dc/elements/1.1/title"> <span>title</span> </a></li>
+ </ul>
+ <div class="entity" id="http://purl.org/dc/terms/bibliographicCitation">
+  <h3>bibliographic Citation<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/bibliographicCitation</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/created">
+  <h3>created<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/created</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/creator">
+  <h3>creator<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/creator</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespacePrefix">
+  <h3>preferred Namespace Prefix<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespacePrefix</p>
+ </div>
+ <div class="entity" id="http://purl.org/vocab/vann/preferredNamespaceUri">
+  <h3>preferred Namespace Uri<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/vocab/vann/preferredNamespaceUri</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/elements/1.1/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/elements/1.1/title</p>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability"> <span>Capability</span> </a></li>
+  <li><a href="#Channel" title="http://purl.org/capability-interaction-graph#Channel"> <span>Channel</span> </a></li>
+  <li><a href="#Component" title="http://purl.org/capability-interaction-graph#Component"> <span>Component</span> </a></li>
+  <li><a href="#Consumer" title="http://purl.org/capability-interaction-graph#Consumer"> <span>Consumer</span> </a></li>
+  <li><a href="#ErroneousCapability" title="http://purl.org/capability-interaction-graph#ErroneousCapability"> <span>Erroneous Capability</span> </a></li>
+  <li><a href="#Fault" title="http://purl.org/capability-interaction-graph#Fault"> <span>Fault</span> </a></li>
+  <li><a href="#FunctionalCapability" title="http://purl.org/capability-interaction-graph#FunctionalCapability"> <span>Functional Capability</span> </a></li>
+  <li><a href="#InputInterface" title="http://purl.org/capability-interaction-graph#InputInterface"> <span>Input Interface</span> </a></li>
+  <li><a href="#Interface" title="http://purl.org/capability-interaction-graph#Interface"> <span>Interface</span> </a></li>
+  <li><a href="#OutputInterface" title="http://purl.org/capability-interaction-graph#OutputInterface"> <span>Output Interface</span> </a></li>
+  <li><a href="#Producer" title="http://purl.org/capability-interaction-graph#Producer"> <span>Producer</span> </a></li>
+  <li><a href="#providedBy" title="http://purl.org/capability-interaction-graph#providedBy"> <span>providedBy</span> </a></li>
+  <li><a href="#provides" title="http://purl.org/capability-interaction-graph#provides"> <span>provides</span> </a></li>
+ </ul>
+ <div class="entity" id="Capability">
+  <h3>Capability<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Capability</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Category" target="_blank" title="http://purl.org/nemo/gufo#Category">Category</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Fault" title="http://purl.org/capability-interaction-graph#Fault">Fault</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Capability">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Channel">
+  <h3>Channel<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Channel</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#RoleMixin" target="_blank" title="http://purl.org/nemo/gufo#RoleMixin">RoleMixin</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Channel">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Component">
+  <h3>Component<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Component</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Mixin" target="_blank" title="http://purl.org/nemo/gufo#Mixin">Mixin</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Component">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Consumer">
+  <h3>Consumer<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Consumer</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Role" target="_blank" title="http://purl.org/nemo/gufo#Role">Role</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Consumer">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ErroneousCapability">
+  <h3>Erroneous Capability<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#ErroneousCapability</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#PhaseMixin" target="_blank" title="http://purl.org/nemo/gufo#PhaseMixin">PhaseMixin</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#ErroneousCapability">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Fault">
+  <h3>Fault<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Fault</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Category" target="_blank" title="http://purl.org/nemo/gufo#Category">Category</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Capability" title="http://purl.org/capability-interaction-graph#Capability">Capability</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Fault">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FunctionalCapability">
+  <h3>Functional Capability<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#FunctionalCapability</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#PhaseMixin" target="_blank" title="http://purl.org/nemo/gufo#PhaseMixin">PhaseMixin</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#FunctionalCapability">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InputInterface">
+  <h3>Input Interface<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#InputInterface</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#SubKind" target="_blank" title="http://purl.org/nemo/gufo#SubKind">SubKind</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#InputInterface">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Interface">
+  <h3>Interface<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Interface</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Kind" target="_blank" title="http://purl.org/nemo/gufo#Kind">Kind</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Interface">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="OutputInterface">
+  <h3>Output Interface<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#OutputInterface</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#SubKind" target="_blank" title="http://purl.org/nemo/gufo#SubKind">SubKind</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#OutputInterface">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Producer">
+  <h3>Producer<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#Producer</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#Role" target="_blank" title="http://purl.org/nemo/gufo#Role">Role</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Producer">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="providedBy">
+  <h3>providedBy<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#providedBy</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#MaterialRelationshipType" target="_blank" title="http://purl.org/nemo/gufo#MaterialRelationshipType">MaterialRelationshipType</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#isDerivedFrom" target="_blank" title="http://purl.org/nemo/gufo#isDerivedFrom">isDerivedFrom</a> <sup class="type-op" title="object property">op</sup> <a href="#InputInterface" title="http://purl.org/capability-interaction-graph#InputInterface">Input Interface</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#providedBy">object property</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="provides">
+  <h3>provides<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/capability-interaction-graph#provides</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#MaterialRelationshipType" target="_blank" title="http://purl.org/nemo/gufo#MaterialRelationshipType">MaterialRelationshipType</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://purl.org/nemo/gufo#isDerivedFrom" target="_blank" title="http://purl.org/nemo/gufo#isDerivedFrom">isDerivedFrom</a> <sup class="type-op" title="object property">op</sup> <a href="#OutputInterface" title="http://purl.org/capability-interaction-graph#OutputInterface">Output Interface</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#provides">object property</a>
+   </dd>
+  </dl>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

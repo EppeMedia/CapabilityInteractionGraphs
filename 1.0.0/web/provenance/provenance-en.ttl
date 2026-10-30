@@ -1,0 +1,16 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<http://purl.org/capability-interaction-graph#/1.0.0> a prov:Entity;
+	 dc:title "Capability Interaction Graph (CIG) Ontology";
+	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo :agent1;
+	 prov:wasAttributedTo :agent2;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:specializationOf <http://purl.org/capability-interaction-graph#>;
+	 prov:wasGeneratedAt "2026-07-03";
+.
+:agent0 a prov:Agent; foaf:name "Ntagengerwa, Manzi Aimé".
+:agent1 a prov:Agent; foaf:name "Caltais, Georgiana".
+:agent2 a prov:Agent; foaf:name "Stoelinga, Mariëlle".
